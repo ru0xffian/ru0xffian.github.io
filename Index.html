@@ -1,7 +1,78 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <title>Abdalla's Personal Website</title>
+    <style>
+        body {
+            background-color: #282828;
+            color: #fbf1c7;
+            font-family: Monaco, monospace;
+            font-size: 14px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0;
+        }
+
+        h1, h2 {
+            color: #b16286;
+        }
+
+        h3 {
+            color: #689d6a;
+        }
+
+        a {
+            color: #458588; /* All URLs styled with the same blue color */
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background-color: #fbf1c7;
+        }
+
+        blockquote {
+            border-left: 4px solid #fbf1c7;
+            padding-left: 10px;
+            margin-left: 0;
+        }
+
+        @media screen and (max-width: 900px) {
+            body {
+                padding: 20px;
+            }
+
+            td {
+                padding-bottom: 1rem;
+            }
+        }
+
+        #photo {
+            background: url("profile-picture.jpg") no-repeat;
+            background-size: contain;
+            width: 300px;
+            height: 300px;
+        }
+
+        #photo:hover {
+            background: url("michael-dog-cropped.jpg") no-repeat;
+            background-size: contain;
+        }
+    </style>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+    <div id="photo"></div>
+    <h1>Abdalla Darwish</h1>
+    <p><b style="color: #cc241d;">email: </b>aboarab AT uw DOT edu</p>
+    <hr>
+    <h3>About me</h3>
+    <p>I am a first year mathematics PhD student at <a href="https://www.math.princeton.edu">University of Washington</a>.</p>
+    <p>My research interests are in geometry and topology. In particular, I am interested in geometric measure theroy, fractal geometry, differential geometry, complex geometry, and algebraic topology.</p>
+    <hr>
+    <h3>Teaching</h3>
+    <hr>
+    <h3>Hobbies</h3>
+    <hr>
+    <p>This website uses vim's <a href="https://github.com/morhetz/gruvbox">gruvbox</a> color scheme. <a href="https://antonoutkine.com">Anton Outkine</a> taught me how to add a photo to a webpage (he also taught me more important things...).</p>
 </body>
 </html>
