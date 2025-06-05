@@ -1,62 +1,61 @@
 body {
-  font-family: Georgia, serif;
+  font-family: "Georgia", serif;
   margin: 0;
   padding: 0;
-  background: #fdfdfd;
+  background: #ffffff;
   color: #222;
+  line-height: 1.6;
 }
 
 .container {
-  max-width: 800px;
+  max-width: 720px;
   margin: 0 auto;
   padding: 1.5rem;
 }
 
 header {
-  background: #002b36;
-  color: #fff;
-  padding: 2rem 0;
-  text-align: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
-header h1 {
-  margin: 0;
-  font-size: 2.5rem;
+header .name {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 0 0 0.25rem 0;
 }
 
 header p {
-  margin: 0.5rem 0;
-  font-size: 1.2rem;
+  margin: 0.25rem 0;
 }
 
 nav {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
 }
 
 nav a {
-  color: #93a1a1;
-  margin: 0 1rem;
+  color: #0056b3;
   text-decoration: none;
-  font-weight: bold;
 }
 
 nav a:hover {
-  color: #eee8d5;
+  text-decoration: underline;
 }
 
 section h2 {
-  border-bottom: 2px solid #ccc;
-  padding-bottom: 0.25rem;
   margin-top: 2rem;
+  font-size: 1.3rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.25rem;
 }
 
 ul {
-  list-style-type: square;
-  padding-left: 1.25rem;
+  padding-left: 1.2rem;
 }
 
 a {
-  color: #268bd2;
+  color: #0056b3;
   text-decoration: none;
 }
 
@@ -65,9 +64,9 @@ a:hover {
 }
 
 footer {
-  text-align: center;
-  padding: 1rem 0;
   font-size: 0.9rem;
-  background: #eee;
-  margin-top: 3rem;
+  color: #555;
+  border-top: 1px solid #ddd;
+  margin-top: 2rem;
+  padding-top: 1rem;
 }
