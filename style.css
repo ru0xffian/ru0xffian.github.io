@@ -34,7 +34,7 @@ header {
 .right {
   flex: 1 1 30%;
   min-width: 350px;
-  text-align: center;
+  text-align: right;
 }
 
 .name {
