@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dr. Alex Rivera · Mathematics</title>
+    <title>arivera@math:~$</title>
 
     <!-- MathJax for LaTeX rendering -->
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
 
-    <!-- Google Fonts -->
+    <!-- JetBrains Mono for a crisp terminal feel -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
 
     <style>
         /* ---------- Reset & Base ---------- */
@@ -25,19 +25,19 @@
         }
 
         :root {
-            --navy: #0b1a2f;
-            --navy-light: #1a2f4a;
-            --gold: #c9a84c;
-            --gold-light: #e8d5a3;
-            --cream: #fcf9f2;
-            --gray: #5a6a7a;
-            --light-gray: #eef2f7;
-            --border: #dce3ec;
-            --shadow: 0 8px 30px rgba(11, 26, 47, 0.08);
-            --radius: 8px;
-            --max-width: 1120px;
-            --font-serif: 'EB Garamond', 'Georgia', serif;
-            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --bg: #0b0e14;
+            --bg-alt: #11161f;
+            --fg: #c8d0d8;
+            --fg-dim: #7a8a9a;
+            --green: #3fcf8e;
+            --green-dim: #2a8f5e;
+            --cyan: #6bc6e7;
+            --amber: #f5b765;
+            --white: #eef3f8;
+            --border: #26303e;
+            --radius: 0px;
+            --max-width: 880px;
+            --font: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
         }
 
         html {
@@ -45,27 +45,20 @@
         }
 
         body {
-            font-family: var(--font-sans);
-            background-color: var(--cream);
-            color: #1e2a3a;
+            background-color: var(--bg);
+            color: var(--fg);
+            font-family: var(--font);
+            font-size: 0.95rem;
             line-height: 1.7;
-            font-weight: 400;
-            font-size: 1.05rem;
-        }
-
-        a {
-            color: var(--navy);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        a:hover {
-            color: var(--gold);
+            padding: 2rem 1.2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .container {
             max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 0 2rem;
+            width: 100%;
         }
 
         /* ---------- Typography ---------- */
@@ -73,541 +66,408 @@
         h2,
         h3,
         h4 {
-            font-family: var(--font-serif);
+            font-family: var(--font);
             font-weight: 600;
-            line-height: 1.2;
-            color: var(--navy);
+            color: var(--white);
+            letter-spacing: -0.01em;
         }
 
         h1 {
-            font-size: 3rem;
-            letter-spacing: -0.02em;
+            font-size: 2.2rem;
         }
         h2 {
-            font-size: 2.2rem;
-            margin-bottom: 1.2rem;
-            border-bottom: 2px solid var(--gold-light);
-            padding-bottom: 0.4rem;
-            display: inline-block;
+            font-size: 1.6rem;
+            margin: 1.8rem 0 0.6rem 0;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.3rem;
         }
         h3 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-top: 0.2rem;
-        }
-
-        .subhead {
             font-size: 1.2rem;
-            font-weight: 300;
-            color: var(--gray);
-            margin-top: 0.25rem;
+            margin: 0.2rem 0 0.2rem 0;
+            color: var(--cyan);
+        }
+        h4 {
+            font-size: 1rem;
+            color: var(--amber);
         }
 
-        .math-block {
-            font-family: var(--font-serif);
-            font-size: 1.1rem;
-            background: white;
-            padding: 0.8rem 1.2rem;
-            border-radius: var(--radius);
-            border-left: 4px solid var(--gold);
-            margin: 1.2rem 0;
-            box-shadow: var(--shadow);
-            overflow-x: auto;
+        a {
+            color: var(--cyan);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--border);
+            transition: color 0.15s, border-color 0.15s;
+        }
+        a:hover {
+            color: var(--green);
+            border-bottom-color: var(--green);
         }
 
-        /* ---------- Navigation ---------- */
-        nav {
-            background: white;
-            border-bottom: 1px solid var(--border);
-            padding: 0.75rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(6px);
-            background: rgba(255, 255, 255, 0.92);
-        }
-
-        nav .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .nav-logo {
-            font-family: var(--font-serif);
-            font-size: 1.4rem;
+        .prompt {
+            color: var(--green);
             font-weight: 600;
-            color: var(--navy);
-            letter-spacing: -0.01em;
+            user-select: none;
         }
-        .nav-logo span {
-            color: var(--gold);
+        .prompt-amber {
+            color: var(--amber);
+            font-weight: 600;
         }
 
-        .nav-links {
+        .cmd-line {
             display: flex;
-            gap: 2rem;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.4rem 0.8rem;
+            padding: 0.2rem 0;
+        }
+
+        .cmd-line .cmd {
+            color: var(--white);
+        }
+
+        /* ---------- Navigation (shell style) ---------- */
+        nav {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.8rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.6rem 1.8rem;
+        }
+
+        nav .nav-prompt {
+            color: var(--green);
+            font-weight: 600;
+        }
+
+        nav .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem 1.2rem;
             list-style: none;
             font-size: 0.9rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-        }
-        .nav-links a {
-            color: var(--gray);
-            transition: color 0.2s;
-        }
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--navy);
         }
 
-        /* ---------- Hero ---------- */
-        .hero {
-            padding: 4rem 0 3rem;
-            background: linear-gradient(145deg, #ffffff 0%, var(--cream) 100%);
-            border-bottom: 1px solid var(--border);
+        nav .nav-links a {
+            color: var(--fg);
+            border-bottom: none;
+            padding: 0.1rem 0.2rem;
         }
-
-        .hero-grid {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 2.5rem;
+        nav .nav-links a:hover {
+            color: var(--green);
+            background: var(--bg-alt);
         }
-
-        .hero-text {
-            flex: 2;
-            min-width: 280px;
-        }
-        .hero-text .title-role {
-            font-size: 1.1rem;
-            font-weight: 400;
-            color: var(--gray);
-            margin-top: 0.2rem;
-            letter-spacing: 0.02em;
-        }
-        .hero-text .affiliation {
-            font-size: 1rem;
-            color: var(--gray);
-            margin-top: 0.3rem;
-        }
-        .hero-text .affiliation a {
-            color: var(--navy);
-            font-weight: 500;
-        }
-
-        .hero-meta {
-            flex: 1;
-            min-width: 200px;
-            background: white;
-            padding: 1.8rem 2rem;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border);
-        }
-        .hero-meta p {
-            font-size: 0.95rem;
-            margin: 0.4rem 0;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-        }
-        .hero-meta .label {
-            font-weight: 500;
-            color: var(--gray);
-            min-width: 70px;
-        }
-        .hero-meta a {
-            color: var(--navy);
-            font-weight: 500;
-        }
-        .hero-meta a:hover {
-            color: var(--gold);
+        nav .nav-links a.active {
+            color: var(--green);
+            background: var(--bg-alt);
         }
 
         /* ---------- Sections ---------- */
         section {
-            padding: 3.5rem 0;
-            border-bottom: 1px solid var(--border);
-        }
-        section:last-of-type {
-            border-bottom: none;
+            margin-bottom: 2.2rem;
+            padding-top: 0.4rem;
         }
 
         .section-intro {
-            max-width: 750px;
+            color: var(--fg-dim);
+            margin: 0.6rem 0 1.2rem 0;
+            padding-left: 0.2rem;
+            border-left: 2px solid var(--border);
+            padding-left: 1rem;
+        }
+
+        /* ---------- Hero ---------- */
+        .hero {
             margin-bottom: 2rem;
-            font-size: 1.05rem;
-            color: #2a3a4a;
+        }
+        .hero .name {
+            font-size: 2.8rem;
+            font-weight: 600;
+            color: var(--white);
+            letter-spacing: -0.02em;
+        }
+        .hero .title-role {
+            color: var(--amber);
+            font-size: 1.1rem;
+        }
+        .hero .affiliation {
+            color: var(--fg-dim);
+        }
+        .hero .affiliation a {
+            color: var(--cyan);
+            border-bottom: 1px dotted var(--border);
         }
 
-        /* ---------- Research ---------- */
-        .research-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.8rem;
-            margin-top: 1.5rem;
-        }
-
-        .research-card {
-            background: white;
-            padding: 1.8rem 1.8rem 2rem;
-            border-radius: var(--radius);
+        .hero-meta {
+            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem 1.8rem;
+            background: var(--bg-alt);
+            padding: 0.8rem 1.2rem;
             border: 1px solid var(--border);
-            box-shadow: var(--shadow);
-            transition: transform 0.2s, box-shadow 0.2s;
         }
-        .research-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(11, 26, 47, 0.10);
+        .hero-meta span {
+            color: var(--fg-dim);
         }
-        .research-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.4rem;
+        .hero-meta a {
+            color: var(--cyan);
+            border-bottom: 1px dotted var(--border);
         }
+
+        /* ---------- Math block ---------- */
+        .math-block {
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            padding: 1rem 1.4rem;
+            margin: 1.2rem 0;
+            overflow-x: auto;
+            color: var(--white);
+        }
+
+        /* ---------- Research / Teaching lists ---------- */
+        .research-grid,
+        .teaching-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+            margin-top: 0.6rem;
+        }
+
+        .research-card,
+        .teaching-card {
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            padding: 1.2rem 1.4rem;
+        }
+
         .research-card .tag {
             display: inline-block;
             font-size: 0.7rem;
-            font-weight: 500;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.06em;
-            background: var(--gold-light);
-            color: var(--navy);
-            padding: 0.15rem 0.8rem;
-            border-radius: 20px;
-            margin-bottom: 0.6rem;
+            color: var(--green);
+            border: 1px solid var(--green-dim);
+            padding: 0.1rem 0.7rem;
+            margin-bottom: 0.3rem;
         }
-        .research-card p {
-            font-size: 0.95rem;
-            color: #2a3a4a;
+
+        .research-card p,
+        .teaching-card p {
+            font-size: 0.9rem;
+            color: var(--fg-dim);
+        }
+
+        .teaching-card .course-code {
+            color: var(--amber);
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+        .teaching-card .term {
+            color: var(--fg-dim);
+            font-size: 0.85rem;
         }
 
         /* ---------- Publications ---------- */
         .pub-list {
             display: flex;
             flex-direction: column;
-            gap: 1.2rem;
+            gap: 0.8rem;
         }
 
         .pub-item {
-            background: white;
-            padding: 1.4rem 1.8rem;
-            border-radius: var(--radius);
+            background: var(--bg-alt);
             border: 1px solid var(--border);
-            box-shadow: var(--shadow);
-            transition: background 0.15s;
-        }
-        .pub-item:hover {
-            background: #faf8f2;
+            padding: 1rem 1.4rem;
         }
         .pub-item .pub-title {
-            font-family: var(--font-serif);
-            font-size: 1.15rem;
+            color: var(--white);
             font-weight: 600;
-            color: var(--navy);
         }
         .pub-item .pub-authors {
-            font-size: 0.95rem;
-            color: var(--gray);
-            margin: 0.15rem 0 0.1rem;
+            color: var(--fg-dim);
+            font-size: 0.9rem;
         }
         .pub-item .pub-journal {
-            font-size: 0.9rem;
-            color: var(--gray);
-            font-style: italic;
+            color: var(--amber);
+            font-size: 0.85rem;
         }
         .pub-item .pub-links {
-            margin-top: 0.4rem;
+            margin-top: 0.3rem;
             display: flex;
-            gap: 1.2rem;
             flex-wrap: wrap;
+            gap: 0.8rem 1.4rem;
         }
         .pub-item .pub-links a {
             font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--navy);
-            border-bottom: 1px dotted var(--gold-light);
-        }
-        .pub-item .pub-links a:hover {
-            border-bottom-color: var(--gold);
-            color: var(--gold);
+            border-bottom: 1px dotted var(--border);
         }
 
-        /* ---------- Teaching ---------- */
-        .teaching-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .teaching-card {
-            background: white;
-            padding: 1.5rem 1.8rem;
-            border-radius: var(--radius);
+        /* ---------- Contact (shell style) ---------- */
+        .contact-block {
+            background: var(--bg-alt);
             border: 1px solid var(--border);
-            box-shadow: var(--shadow);
+            padding: 1.4rem 1.8rem;
         }
-        .teaching-card .course-code {
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            color: var(--gold);
-        }
-        .teaching-card h4 {
-            font-family: var(--font-serif);
-            font-size: 1.1rem;
-            margin: 0.2rem 0 0.1rem;
-        }
-        .teaching-card .term {
-            font-size: 0.9rem;
-            color: var(--gray);
-        }
-        .teaching-card .role {
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--navy-light);
-            margin-top: 0.3rem;
-        }
-
-        /* ---------- Contact ---------- */
-        .contact-flex {
+        .contact-block .contact-line {
             display: flex;
             flex-wrap: wrap;
-            gap: 2.5rem;
-            align-items: flex-start;
+            gap: 0.4rem 1.2rem;
+            padding: 0.15rem 0;
+            align-items: baseline;
         }
-
-        .contact-info {
-            flex: 1;
-            min-width: 220px;
+        .contact-block .contact-line .label {
+            color: var(--fg-dim);
+            min-width: 6rem;
         }
-        .contact-info p {
-            margin: 0.6rem 0;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-        }
-        .contact-info .icon {
-            font-size: 1.2rem;
-            min-width: 1.6rem;
-        }
-        .contact-info a {
-            font-weight: 500;
-            color: var(--navy);
-        }
-
-        .contact-form {
-            flex: 2;
-            min-width: 280px;
-            background: white;
-            padding: 2rem 2.2rem;
-            border-radius: var(--radius);
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow);
-        }
-        .contact-form label {
-            font-weight: 500;
-            font-size: 0.9rem;
-            display: block;
-            margin: 0.8rem 0 0.2rem;
-        }
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 0.6rem 1rem;
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            font-family: var(--font-sans);
-            font-size: 0.95rem;
-            background: var(--cream);
-            transition: border 0.2s, box-shadow 0.2s;
-        }
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            border-color: var(--gold);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.15);
-        }
-        .contact-form textarea {
-            min-height: 100px;
-            resize: vertical;
-        }
-        .contact-form .btn {
-            background: var(--navy);
-            color: white;
-            border: none;
-            padding: 0.7rem 2rem;
-            font-weight: 500;
-            font-size: 0.95rem;
-            border-radius: var(--radius);
-            cursor: pointer;
-            margin-top: 1rem;
-            transition: background 0.2s, transform 0.1s;
-        }
-        .contact-form .btn:hover {
-            background: var(--navy-light);
-        }
-        .contact-form .btn:active {
-            transform: scale(0.97);
+        .contact-block .contact-line a {
+            color: var(--cyan);
+            border-bottom: 1px dotted var(--border);
         }
 
         /* ---------- Footer ---------- */
         footer {
-            background: var(--navy);
-            color: rgba(255, 255, 255, 0.7);
-            padding: 2rem 0;
-            margin-top: 1rem;
-            font-size: 0.9rem;
-        }
-        footer .container {
+            margin-top: 2.5rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid var(--border);
+            color: var(--fg-dim);
+            font-size: 0.8rem;
             display: flex;
-            justify-content: space-between;
             flex-wrap: wrap;
-            gap: 1rem;
+            justify-content: space-between;
+            gap: 0.6rem;
         }
         footer a {
-            color: var(--gold-light);
+            color: var(--fg-dim);
+            border-bottom: none;
         }
         footer a:hover {
-            color: white;
+            color: var(--green);
         }
 
         /* ---------- Responsive ---------- */
-        @media (max-width: 780px) {
-            .hero-grid {
-                flex-direction: column;
-                align-items: stretch;
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem 0.8rem;
+                font-size: 0.9rem;
             }
-            .hero-meta {
-                order: 2;
-            }
-            nav .container {
-                flex-direction: column;
-                gap: 0.6rem;
-            }
-            .nav-links {
-                gap: 1.2rem;
-                flex-wrap: wrap;
-                justify-content: center;
+            .hero .name {
+                font-size: 2rem;
             }
             h1 {
-                font-size: 2.4rem;
-            }
-            h2 {
                 font-size: 1.8rem;
             }
-            .container {
-                padding: 0 1.2rem;
+            h2 {
+                font-size: 1.3rem;
             }
-            section {
-                padding: 2.5rem 0;
-            }
-            .contact-flex {
-                flex-direction: column;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .nav-links {
-                font-size: 0.75rem;
-                gap: 0.8rem;
-            }
-            .hero {
-                padding: 2.5rem 0;
-            }
-            .research-grid {
-                grid-template-columns: 1fr;
-            }
+            .research-grid,
             .teaching-grid {
                 grid-template-columns: 1fr;
             }
+            nav {
+                flex-direction: column;
+                gap: 0.2rem;
+            }
+            nav .nav-links {
+                gap: 0.2rem 1rem;
+            }
+            .hero-meta {
+                flex-direction: column;
+                gap: 0.2rem;
+            }
+            .contact-block .contact-line {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.1rem;
+            }
+            .contact-block .contact-line .label {
+                min-width: unset;
+            }
         }
 
-        /* ---------- Utilities ---------- */
-        .text-gold {
-            color: var(--gold);
+        /* ---------- MathJax overrides ---------- */
+        .math-block mjx-container {
+            color: var(--white) !important;
         }
-        .mt-1 {
-            margin-top: 1rem;
-        }
-        .mb-1 {
-            margin-bottom: 1rem;
-        }
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            border: 0;
+        mjx-container {
+            color: var(--fg) !important;
         }
     </style>
 </head>
 
 <body>
+    <div class="container">
 
-    <!-- ====== NAVIGATION ====== -->
-    <nav aria-label="Main navigation">
-        <div class="container">
-            <div class="nav-logo">
-                A<span>.</span> Rivera
-            </div>
+        <!-- ====== NAVIGATION ====== -->
+        <nav aria-label="Shell navigation">
+            <span class="nav-prompt">~$</span>
+            <span class="cmd">ls -la</span>
             <ul class="nav-links">
-                <li><a href="#about" class="active">About</a></li>
-                <li><a href="#research">Research</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#teaching">Teaching</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about" class="active">about</a></li>
+                <li><a href="#research">research</a></li>
+                <li><a href="#publications">pubs</a></li>
+                <li><a href="#teaching">teaching</a></li>
+                <li><a href="#contact">contact</a></li>
             </ul>
-        </div>
-    </nav>
+        </nav>
 
-    <!-- ====== HERO ====== -->
-    <header class="hero" id="top">
-        <div class="container hero-grid">
-            <div class="hero-text">
-                <h1>Alex Rivera</h1>
-                <div class="title-role">PhD Candidate in Mathematics</div>
-                <div class="affiliation">
-                    <a href="#">Department of Mathematics</a> &middot;
-                    <a href="#">University of Chicago</a>
-                </div>
-                <p style="margin-top:1.2rem; max-width:500px; font-size:1.05rem;">
-                    Specializing in <strong>algebraic geometry</strong> and
-                    <strong>number theory</strong>, with a focus on
-                    moduli spaces and arithmetic dynamics.
-                </p>
+        <!-- ====== HERO ====== -->
+        <header class="hero">
+            <div class="cmd-line">
+                <span class="prompt">~$</span>
+                <span class="cmd">whoami</span>
             </div>
+            <div class="name">Alex Rivera</div>
+
+            <div class="cmd-line">
+                <span class="prompt">~$</span>
+                <span class="cmd">cat .title</span>
+            </div>
+            <div class="title-role">PhD Candidate in Mathematics</div>
+
+            <div class="cmd-line">
+                <span class="prompt">~$</span>
+                <span class="cmd">cat .affiliation</span>
+            </div>
+            <div class="affiliation">
+                <a href="#">Department of Mathematics</a> &middot;
+                <a href="#">University of Chicago</a>
+            </div>
+
             <div class="hero-meta">
-                <p><span class="label">Email</span> <a href="mailto:arivera@math.uchicago.edu">arivera@math.uchicago.edu</a></p>
-                <p><span class="label">Office</span> Eckhart 307</p>
-                <p><span class="label">CV</span> <a href="#">Download PDF</a></p>
-                <p><span class="label">GitHub</span> <a href="#">@alex-rivera-math</a></p>
+                <span><span class="prompt-amber">✉</span> <a href="mailto:arivera@math.uchicago.edu">arivera@math.uchicago.edu</a></span>
+                <span><span class="prompt-amber">⌨</span> <a href="#">github.com/alex-rivera</a></span>
+                <span><span class="prompt-amber">📄</span> <a href="#">cv.pdf</a></span>
+                <span><span class="prompt-amber">🏛</span> Eckhart 307</span>
             </div>
-        </div>
-    </header>
 
-    <!-- ====== ABOUT ====== -->
-    <section id="about">
-        <div class="container">
-            <h2>About</h2>
+            <div style="margin-top:0.6rem; color:var(--fg-dim);">
+                <span class="prompt">~$</span> echo $SPECIALIZATION
+                <span style="display:block; padding-left:0.4rem;">
+                    algebraic geometry &amp; arithmetic dynamics
+                </span>
+            </div>
+        </header>
+
+        <!-- ====== ABOUT ====== -->
+        <section id="about">
+            <div class="cmd-line">
+                <span class="prompt">~$</span>
+                <span class="cmd">cat about.md</span>
+            </div>
+
             <div class="section-intro">
                 <p>
                     I am a fifth-year PhD student at the University of Chicago,
-                    advised by Prof. <strong>Miriam Harris</strong>.
+                    advised by <strong>Prof. Miriam Harris</strong>.
                     My research lies at the intersection of algebraic geometry
                     and arithmetic dynamics. I am particularly interested in
                     the <em>geometric</em> and <em>arithmetic</em> properties
                     of moduli spaces of rational maps and their connections to
                     dynamical systems over finite fields.
                 </p>
-                <p style="margin-top: 0.8rem;">
+                <p style="margin-top:0.6rem;">
                     Before Chicago, I completed my B.S. in Mathematics at
                     <strong>MIT</strong> (2021), where I worked on
                     tropical geometry and combinatorial Hodge theory.
@@ -618,66 +478,60 @@
                 \[
                 \mathcal{M}_{d} = \left\{ f : \mathbb{P}^1 \to \mathbb{P}^1 \;\middle|\; \deg f = d \right\} \big/ \operatorname{PGL}_2
                 \]
-                <span style="display:block; margin-top:0.3rem; font-size:0.95rem; color:var(--gray);">
-                    The moduli space of degree-\(d\) rational maps — a central object in my research.
+                <span style="display:block; margin-top:0.3rem; color:var(--fg-dim); font-size:0.9rem;">
+                    <!-- comment --> The moduli space of degree-\(d\) rational maps
                 </span>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ====== RESEARCH ====== -->
-    <section id="research">
-        <div class="container">
-            <h2>Research Interests</h2>
-            <div class="section-intro">
-                My work is guided by questions at the boundary of algebraic
-                geometry, number theory, and dynamical systems.
+        <!-- ====== RESEARCH ====== -->
+        <section id="research">
+            <div class="cmd-line">
+                <span class="prompt">~$</span>
+                <span class="cmd">cd research &amp;&amp; ls -1</span>
             </div>
 
             <div class="research-grid">
                 <div class="research-card">
-                    <span class="tag">Algebraic Geometry</span>
+                    <span class="tag">algebraic geometry</span>
                     <h3>Moduli spaces of maps</h3>
                     <p>
-                        Geometry of the moduli space \(\mathcal{M}_d\) of
-                        degree-\(d\) rational maps, including compactifications,
+                        Geometry of \(\mathcal{M}_d\), compactifications,
                         singularities, and intersection theory.
                     </p>
                 </div>
 
                 <div class="research-card">
-                    <span class="tag">Arithmetic Dynamics</span>
+                    <span class="tag">arithmetic dynamics</span>
                     <h3>Post-critically finite maps</h3>
                     <p>
                         Classification and arithmetic properties of PCF maps
-                        over number fields and finite fields, with connections
-                        to the dynamical Mordell–Lang conjecture.
+                        over number fields and finite fields.
                     </p>
                 </div>
 
                 <div class="research-card">
-                    <span class="tag">Number Theory</span>
-                    <h3>Height functions &amp; arithmetic equidistribution</h3>
+                    <span class="tag">number theory</span>
+                    <h3>Height functions</h3>
                     <p>
-                        Using canonical height functions and equidistribution
-                        theorems to study preperiodic points and
-                        algebraic dynamics.
+                        Canonical height functions and equidistribution
+                        theorems for preperiodic points.
                     </p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ====== PUBLICATIONS ====== -->
-    <section id="publications">
-        <div class="container">
-            <h2>Publications &amp; Preprints</h2>
-            <div class="section-intro">
-                (* indicates equal contribution; preprints available on arXiv.)
+        <!-- ====== PUBLICATIONS ====== -->
+        <section id="publications">
+            <div class="cmd-line">
+                <span class="prompt">~$</span>
+                <span class="cmd">cat publications.md</span>
+            </div>
+            <div class="section-intro" style="border-left-color:var(--green-dim);">
+                * indicates equal contribution &middot; preprints on arXiv.
             </div>
 
             <div class="pub-list">
-
                 <div class="pub-item">
                     <div class="pub-title">The geometry of the moduli space of cubic rational maps</div>
                     <div class="pub-authors">A. Rivera, M. Harris</div>
@@ -716,155 +570,134 @@
                         <a href="#">arXiv:2602.09876</a>
                     </div>
                 </div>
-
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ====== TEACHING ====== -->
-    <section id="teaching">
-        <div class="container">
-            <h2>Teaching</h2>
-            <div class="section-intro">
-                I am passionate about teaching mathematics at all levels.
-                At Chicago, I have served as instructor or teaching assistant
-                for the following courses.
+        <!-- ====== TEACHING ====== -->
+        <section id="teaching">
+            <div class="cmd-line">
+                <span class="prompt">~$</span>
+                <span class="cmd">cd teaching &amp;&amp; ls -la</span>
             </div>
 
             <div class="teaching-grid">
-
                 <div class="teaching-card">
                     <div class="course-code">MATH 20300</div>
                     <h4>Analysis III</h4>
                     <div class="term">Spring 2026 · Instructor</div>
-                    <div class="role">Honors section · Riemann integration &amp; metric spaces</div>
+                    <p>Honors section · Riemann integration &amp; metric spaces</p>
                 </div>
 
                 <div class="teaching-card">
                     <div class="course-code">MATH 16100</div>
                     <h4>Calculus III</h4>
                     <div class="term">Autumn 2025 · TA</div>
-                    <div class="role">Vector calculus, multivariable integration</div>
+                    <p>Vector calculus, multivariable integration</p>
                 </div>
 
                 <div class="teaching-card">
                     <div class="course-code">MATH 28500</div>
-                    <h4>Introduction to Algebraic Geometry</h4>
+                    <h4>Intro to Algebraic Geometry</h4>
                     <div class="term">Winter 2025 · TA</div>
-                    <div class="role">Undergraduate course · Varieties, schemes, cohomology</div>
+                    <p>Varieties, schemes, cohomology</p>
                 </div>
 
                 <div class="teaching-card">
                     <div class="course-code">MATH 20700</div>
                     <h4>Abstract Linear Algebra</h4>
                     <div class="term">Spring 2024 · Instructor</div>
-                    <div class="role">Vector spaces, linear transformations, Jordan form</div>
+                    <p>Vector spaces, linear transformations, Jordan form</p>
                 </div>
-
             </div>
 
-            <p style="margin-top:1.8rem; font-size:0.95rem; color:var(--gray);">
-                <strong>Teaching statement</strong> available upon request.
-            </p>
-        </div>
-    </section>
-
-    <!-- ====== CONTACT ====== -->
-    <section id="contact">
-        <div class="container">
-            <h2>Contact</h2>
-
-            <div class="contact-flex">
-
-                <div class="contact-info">
-                    <p><span class="icon">📧</span> <a href="mailto:arivera@math.uchicago.edu">arivera@math.uchicago.edu</a></p>
-                    <p><span class="icon">📞</span> +1 (773) 555-0142</p>
-                    <p><span class="icon">🏛️</span> Eckhart Hall, Room 307<br />5734 S University Ave<br />Chicago, IL 60637</p>
-                    <p><span class="icon">📄</span> <a href="#">Curriculum Vitae (PDF)</a></p>
-                    <p><span class="icon">🐦</span> <a href="#">@alex_math</a> · <span class="icon">📐</span> <a href="#">MathOverflow</a></p>
-                    <p style="margin-top:1rem; font-size:0.9rem; color:var(--gray);">
-                        I am available for research collaboration,<br />
-                        invited talks, and PhD advising.
-                    </p>
-                </div>
-
-                <div class="contact-form">
-                    <form id="contactForm" action="#" method="POST">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" placeholder="Your name" required />
-
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="your@email.edu" required />
-
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" placeholder="Research inquiry, teaching, etc." />
-
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" placeholder="Your message…" required></textarea>
-
-                        <button type="submit" class="btn">Send message</button>
-                    </form>
-                    <p style="font-size:0.8rem; color:var(--gray); margin-top:0.6rem;">
-                        (This is a demo form — your message will not be sent.)
-                    </p>
-                </div>
-
+            <div style="margin-top:1rem; color:var(--fg-dim);">
+                <span class="prompt">~$</span> cat teaching_statement.md &nbsp; <a href="#">(available upon request)</a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ====== FOOTER ====== -->
-    <footer>
-        <div class="container">
-            <span>&copy; 2026 Alex Rivera &mdash; Built with &hearts; in Chicago</span>
+        <!-- ====== CONTACT ====== -->
+        <section id="contact">
+            <div class="cmd-line">
+                <span class="prompt">~$</span>
+                <span class="cmd">cat contact</span>
+            </div>
+
+            <div class="contact-block">
+                <div class="contact-line">
+                    <span class="label">email</span>
+                    <a href="mailto:arivera@math.uchicago.edu">arivera@math.uchicago.edu</a>
+                </div>
+                <div class="contact-line">
+                    <span class="label">office</span>
+                    <span>Eckhart Hall, Room 307 · Chicago, IL 60637</span>
+                </div>
+                <div class="contact-line">
+                    <span class="label">phone</span>
+                    <span>+1 (773) 555-0142</span>
+                </div>
+                <div class="contact-line">
+                    <span class="label">web</span>
+                    <a href="#">github.com/alex-rivera</a> &middot;
+                    <a href="#">mathoverflow.net/users/alex-rivera</a>
+                </div>
+                <div class="contact-line" style="margin-top:0.6rem; border-top:1px solid var(--border); padding-top:0.6rem;">
+                    <span class="label">pgp</span>
+                    <span style="color:var(--fg-dim);">0x7A4F 3B2C  —  <a href="#">public key</a></span>
+                </div>
+                <div class="contact-line">
+                    <span class="label">calendar</span>
+                    <span style="color:var(--fg-dim);">office hours: Tue/Thu 14:00–16:00</span>
+                </div>
+            </div>
+
+            <div style="margin-top:0.8rem; color:var(--fg-dim);">
+                <span class="prompt">~$</span> mail -s "research inquiry" arivera@math.uchicago.edu
+            </div>
+        </section>
+
+        <!-- ====== FOOTER ====== -->
+        <footer>
+            <span>&copy; 2026 Alex Rivera &middot; built with <span style="color:var(--green);">$EDITOR</span></span>
             <span>
-                <a href="#top">Back to top</a>
-                &middot;
-                <a href="#">GitHub</a>
+                <a href="#top">↑ back to top</a>
                 &middot;
                 <a href="#">arXiv</a>
+                &middot;
+                <a href="#">GitHub</a>
             </span>
-        </div>
-    </footer>
+        </footer>
 
-    <!-- ====== SIMPLE FORM INTERACTION ====== -->
+    </div>
+    <!-- /container -->
+
+    <!-- ====== SIMPLE SCROLL SPY FOR NAV ====== -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('contactForm');
-            if (form) {
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    alert('Thank you for your message! (This is a demo — your message was not actually sent.)');
-                    form.reset();
-                });
-            }
-
-            // Highlight active nav link on scroll (simple version)
             const sections = document.querySelectorAll('section[id]');
             const navLinks = document.querySelectorAll('.nav-links a');
 
-            function updateActiveLink() {
-                let current = '';
-                const scrollPos = window.scrollY + 120;
+            function updateActive() {
+                let currentId = '';
+                const scrollPos = window.scrollY + 140;
 
                 sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.offsetHeight;
-                    if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-                        current = section.getAttribute('id');
+                    const top = section.offsetTop;
+                    const height = section.offsetHeight;
+                    if (scrollPos >= top && scrollPos < top + height) {
+                        currentId = section.getAttribute('id');
                     }
                 });
 
                 navLinks.forEach(link => {
                     link.classList.remove('active');
-                    if (link.getAttribute('href') === '#' + current) {
+                    if (link.getAttribute('href') === '#' + currentId) {
                         link.classList.add('active');
                     }
                 });
             }
 
-            window.addEventListener('scroll', updateActiveLink);
-            updateActiveLink();
+            window.addEventListener('scroll', updateActive);
+            updateActive();
         });
     </script>
 
