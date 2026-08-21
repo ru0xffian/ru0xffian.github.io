@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Academic website for Ahmed Boarab, mathematics PhD student." />
     <title>Ahmed Boarab</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>" type="image/svg+xml" />
     <style>
         /* ── reset & base ── */
         * {
@@ -15,266 +13,133 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background: #fafafa;
+            font-family: 'Georgia', 'Times New Roman', Times, serif;
+            background: #fcfcf9;
             color: #1a1a1a;
-            line-height: 1.6;
-            padding: 2rem 1.5rem;
+            line-height: 1.7;
+            padding: 3rem 1.5rem;
             display: flex;
             justify-content: center;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 780px;
             width: 100%;
         }
 
-        /* ── header / nav ── */
-        .site-header {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid #e5e5e5;
-            margin-bottom: 2.5rem;
-        }
-
-        .site-title {
-            font-size: 1.8rem;
-            font-weight: 600;
+        /* ── headings ── */
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
             letter-spacing: -0.02em;
-            text-decoration: none;
-            color: #1a1a1a;
+            margin-bottom: 0.15rem;
         }
 
-        .site-title:hover {
-            color: #0056b3;
-        }
-
-        nav {
-            display: flex;
-            gap: 1.8rem;
-            font-size: 1rem;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #1a1a1a;
-            border-bottom: 2px solid transparent;
-            padding-bottom: 0.2rem;
-            transition: border-color 0.2s;
-        }
-
-        nav a:hover,
-        nav a[aria-current="page"] {
-            border-bottom-color: #1a1a1a;
-        }
-
-        /* ── hero / main layout ── */
-        .hero {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2.5rem;
-            align-items: flex-start;
-            margin-bottom: 2.5rem;
-        }
-
-        .hero-main {
-            flex: 2;
-            min-width: 260px;
-        }
-
-        .home-title {
-            font-size: 2.6rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            margin-bottom: 0.75rem;
-        }
-
-        .lede {
+        .subhead {
             font-size: 1.1rem;
-            margin-bottom: 0.8rem;
-            max-width: 600px;
-        }
-
-        .lede a {
-            color: #0056b3;
-            text-decoration: none;
-            border-bottom: 1px dotted #0056b3;
-        }
-
-        .lede a:hover {
-            border-bottom: 1px solid #0056b3;
-        }
-
-        /* ── profile card ── */
-        .profile-card {
-            flex: 1;
-            min-width: 200px;
-            background: #ffffff;
-            padding: 1.5rem 1.5rem 1.8rem;
-            border-radius: 12px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-            border: 1px solid #efefef;
-            text-align: center;
-        }
-
-        .profile-photo {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 1rem;
-            background: #eaeaea;
-        }
-
-        .profile-card p {
-            font-size: 0.95rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .profile-card strong {
-            font-weight: 600;
-        }
-
-        .profile-card .email {
-            word-break: break-all;
-        }
-
-        /* ── sections (talks, experience, etc.) ── */
-        .section {
-            margin-top: 2.8rem;
-        }
-
-        .section-title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            letter-spacing: -0.01em;
-            border-bottom: 1px solid #e5e5e5;
-            padding-bottom: 0.3rem;
-            margin-bottom: 1.2rem;
-        }
-
-        .entry {
-            margin-bottom: 1.2rem;
-        }
-
-        .entry-head {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: baseline;
-        }
-
-        .entry-title {
-            font-weight: 600;
-            font-size: 1.05rem;
-        }
-
-        .entry-sub {
-            font-style: italic;
-            color: #2c2c2c;
-        }
-
-        .entry-date {
-            color: #555;
-            font-size: 0.9rem;
-            white-space: nowrap;
-        }
-
-        .entry-desc {
-            margin-top: 0.1rem;
-            padding-left: 0.2rem;
             color: #2a2a2a;
+            margin-bottom: 1.8rem;
+            border-bottom: 1px solid #e0ddd8;
+            padding-bottom: 0.6rem;
         }
 
-        .entry-desc ul {
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid #e0ddd8;
+            padding-bottom: 0.15rem;
+        }
+
+        /* ── paragraphs & links ── */
+        p {
+            margin-bottom: 0.6rem;
+        }
+
+        a {
+            color: #1a1a1a;
+            text-decoration: none;
+            border-bottom: 1px dotted #aaa;
+        }
+
+        a:hover {
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        /* ── lists ── */
+        ul {
             list-style: none;
-            padding-left: 0.8rem;
+            padding-left: 0.2rem;
+            margin-bottom: 0.8rem;
         }
 
-        .entry-desc li {
+        ul li {
             position: relative;
-            padding-left: 1.2rem;
+            padding-left: 1.4rem;
             margin-bottom: 0.1rem;
         }
 
-        .entry-desc li::before {
+        ul li::before {
             content: "–";
             position: absolute;
             left: 0;
             color: #777;
         }
 
+        /* ── research / talk items ── */
+        .paper {
+            margin-bottom: 0.6rem;
+        }
+
+        .paper .title {
+            font-weight: 700;
+        }
+
+        .paper .abstract {
+            margin-top: 0.1rem;
+            color: #2a2a2a;
+        }
+
         .talk-item {
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.2rem;
         }
 
-        .talk-title {
-            font-weight: 500;
-        }
-
-        .talk-venue {
+        .talk-item .venue {
             color: #444;
         }
 
-        .meta-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem 1.2rem;
-            margin-top: 0.3rem;
-        }
-
-        .meta-list span {
-            background: #f0eeeb;
-            padding: 0.1rem 0.7rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-        }
-
-        /* ── footer ── */
-        .site-footer {
-            margin-top: 3.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid #e5e5e5;
+        /* ── meta / footer ── */
+        .meta {
+            margin-top: 2.2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e0ddd8;
             font-size: 0.9rem;
             color: #555;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
         }
 
-        .site-footer a {
+        .meta a {
             color: #1a1a1a;
-            text-decoration: none;
             border-bottom: 1px dotted #aaa;
         }
 
-        .site-footer a:hover {
+        .meta a:hover {
             border-bottom: 1px solid #1a1a1a;
         }
 
         /* ── responsive ── */
-        @media (max-width: 700px) {
-            .hero {
-                flex-direction: column-reverse;
+        @media (max-width: 600px) {
+            body {
+                padding: 2rem 1rem;
             }
-            .profile-card {
-                width: 100%;
+            h1 {
+                font-size: 1.8rem;
             }
-            .site-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.5rem;
+            .subhead {
+                font-size: 1rem;
             }
-            nav {
-                gap: 1.2rem;
-                font-size: 0.95rem;
-            }
-            .home-title {
-                font-size: 2.2rem;
+            h2 {
+                font-size: 1.1rem;
             }
         }
     </style>
@@ -284,173 +149,103 @@
 <div class="container">
 
     <!-- ─── header ─── -->
-    <header class="site-header">
-        <a class="site-title" href="/">Ahmed Boarab</a>
-        <nav aria-label="Primary navigation">
-            <a href="/" aria-current="page">Home</a>
-            <a href="#talks">Talks</a>
-            <a href="#experience">Experience</a>
-            <a href="#education">Education</a>
-        </nav>
-    </header>
+    <h1>Ahmed Boarab</h1>
+    <div class="subhead">
+        <span style="display:inline-block; margin-right:0.8rem;">📧 aboarab at uw.edu</span>
+        <span style="display:inline-block;">📍 Seattle, WA · University of Washington</span>
+    </div>
 
-    <!-- ─── hero ─── -->
-    <section class="hero">
-        <div class="hero-main">
-            <h1 class="home-title">Ahmed Boarab</h1>
-            <p class="lede">
-                I am a mathematics PhD student at the University of Washington.
-            </p>
-            <p class="lede">
-                I am interested in <strong>differential geometry</strong> and
-                <strong>geometric analysis</strong>.
-            </p>
-            <p class="lede">
-                Previously, I earned my B.Sc. in Mathematics and Computer Science
-                from the University of Chicago (2024), graduating with honors in Mathematics.
-            </p>
+    <!-- ─── about ─── -->
+    <h2>About me</h2>
+    <p>
+        I am a mathematics PhD student at the University of Washington.
+        My research interests are in <strong>differential geometry</strong> and
+        <strong>geometric analysis</strong>.
+    </p>
+    <p>
+        I completed my B.Sc. in Mathematics and Computer Science at the
+        University of Chicago (2024), graduating with honors in Mathematics.
+    </p>
+
+    <!-- ─── research ─── -->
+    <h2>Research</h2>
+
+    <div class="paper">
+        <div class="title">Minimal Surface theory and black holes.</div>
+        <div class="abstract">
+            Work in progress on the relationship between minimal surface theory
+            and black hole thermodynamics in general relativity.
         </div>
+    </div>
 
-        <aside class="profile-card" aria-label="Profile summary">
-            <!-- placeholder avatar – you can replace "me.jpeg" with your own photo -->
-            <img class="profile-photo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Ccircle cx='70' cy='70' r='70' fill='%23e0e0e0'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='central' text-anchor='middle' font-size='48' font-family='sans-serif' fill='%23555'%3E📐%3C/text%3E%3C/svg%3E"
-                 alt="Ahmed Boarab" />
-            <p><strong>University of Washington</strong><br />Department of Mathematics</p>
-            <p><strong>Email</strong><br /><span class="email">aboarab at uw.edu</span></p>
-        </aside>
-    </section>
-
-    <!-- ─── education ─── -->
-    <section class="section" id="education">
-        <h2 class="section-title">Education</h2>
-
-        <div class="entry">
-            <div class="entry-head">
-                <span class="entry-title">University of Washington</span>
-                <span class="entry-date">2024 – Present</span>
-            </div>
-            <div class="entry-desc">Ph.D. Mathematics · Graduate Advisor: TBD</div>
+    <div class="paper">
+        <div class="title">Estimates on the Favard length for the four‑corner Cantor set.</div>
+        <div class="abstract">
+            Joint work with [collaborators]. We obtain improved bounds on the
+            Favard length of the four‑corner Cantor set using geometric measure
+            theory techniques.
         </div>
-
-        <div class="entry">
-            <div class="entry-head">
-                <span class="entry-title">University of Chicago</span>
-                <span class="entry-date">Class of 2024</span>
-            </div>
-            <div class="entry-desc">B.Sc. Mathematics, Computer Science · Graduated with honors in Mathematics</div>
-        </div>
-    </section>
-
-    <!-- ─── experience ─── -->
-    <section class="section" id="experience">
-        <h2 class="section-title">Experience</h2>
-
-        <div class="entry">
-            <div class="entry-head">
-                <span class="entry-title">Visiting Scholar</span>
-                <span class="entry-date">2024 – 2026</span>
-            </div>
-            <div class="entry-desc">
-                Center of Fundamental Physics, ZC, Giza, Egypt<br />
-                Teaching <em>“Geometry of Physics”</em> sequence of lectures for undergraduates.
-            </div>
-        </div>
-
-        <div class="entry">
-            <div class="entry-head">
-                <span class="entry-title">Undergraduate Grader</span>
-                <span class="entry-date">2023 – 2024</span>
-            </div>
-            <div class="entry-desc">University of Chicago · Grading CMSC 14400 Systems Programming II.</div>
-        </div>
-
-        <div class="entry">
-            <div class="entry-head">
-                <span class="entry-title">Undergraduate Teaching Assistant</span>
-                <span class="entry-date">2022 – 2023</span>
-            </div>
-            <div class="entry-desc">University of Chicago</div>
-        </div>
-
-        <div class="entry">
-            <div class="entry-head">
-                <span class="entry-title">REU Participant</span>
-                <span class="entry-date">Summer 2023</span>
-            </div>
-            <div class="entry-desc">University of Chicago REU · Project: <em>Avatars of the Picard group and group H¹ as a classifying space.</em></div>
-        </div>
-
-        <div class="entry">
-            <div class="entry-head">
-                <span class="entry-title">REU Participant</span>
-                <span class="entry-date">Summer 2022</span>
-            </div>
-            <div class="entry-desc">University of Chicago REU · Project: <em>The algorithmic undecidability of manifold homeomorphism.</em></div>
-        </div>
-
-        <div class="entry">
-            <div class="entry-head">
-                <span class="entry-title">Summer School Participant</span>
-                <span class="entry-date">Summer 2021</span>
-            </div>
-            <div class="entry-desc">British University in Egypt Summer School on Physics · Project: <em>Chaos in n‑body Trajectories.</em></div>
-        </div>
-    </section>
+    </div>
 
     <!-- ─── talks ─── -->
-    <section class="section" id="talks">
-        <h2 class="section-title">Talks</h2>
+    <h2>Talks</h2>
 
-        <div class="talk-item">
-            <span class="talk-title">Minimal Surface theory and black holes.</span>
-            <span class="talk-venue">— ZC Center of Fundamental Physics Seminar (Winter 2025)</span>
-        </div>
-        <div class="talk-item">
-            <span class="talk-title">Estimates on the Favard length for the four‑corner Cantor set.</span>
-            <span class="talk-venue">— University of Chicago Student GMT Seminar (Fall 2023)</span>
-        </div>
-        <div class="talk-item">
-            <span class="talk-title">Favard curve length for the four‑corner Cantor set.</span>
-            <span class="talk-venue">— University of Chicago Student GMT Seminar (Fall 2023)</span>
-        </div>
-        <div class="talk-item">
-            <span class="talk-title">An elementary proof of the Abel‑Jacobi theorem.</span>
-            <span class="talk-venue">— University of Chicago Mathematics Club (Summer 2023)</span>
-        </div>
-    </section>
+    <div class="talk-item">
+        <span class="title">Minimal Surface theory and black holes.</span>
+        <span class="venue">– ZC Center of Fundamental Physics Seminar (Winter 2025)</span>
+    </div>
+    <div class="talk-item">
+        <span class="title">Estimates on the Favard length for the four‑corner Cantor set.</span>
+        <span class="venue">– University of Chicago Student GMT Seminar (Fall 2023)</span>
+    </div>
+    <div class="talk-item">
+        <span class="title">Favard curve length for the four‑corner Cantor set.</span>
+        <span class="venue">– University of Chicago Student GMT Seminar (Fall 2023)</span>
+    </div>
+    <div class="talk-item">
+        <span class="title">An elementary proof of the Abel‑Jacobi theorem.</span>
+        <span class="venue">– University of Chicago Mathematics Club (Summer 2023)</span>
+    </div>
 
-    <!-- ─── schools, awards, skills ─── -->
-    <section class="section">
-        <h2 class="section-title">Schools &amp; Awards</h2>
-        <ul style="list-style:none; padding-left:0.2rem;">
-            <li>• 5th Summer School on Mathematical Physics, Cairo University (Summer 2025)</li>
-            <li>• AUC Winter School on Analysis, American University in Cairo (Winter 2025)</li>
-            <li>• University of Washington Provost Fellowship</li>
-            <li>• Onsi Sawiris Scholarship</li>
-        </ul>
-    </section>
+    <!-- ─── teaching & experience ─── -->
+    <h2>Teaching &amp; Experience</h2>
 
-    <section class="section">
-        <h2 class="section-title">Skills &amp; Languages</h2>
-        <div class="meta-list">
-            <span>C/C++</span>
-            <span>Python</span>
-            <span>Lisp</span>
-            <span>Haskell</span>
-            <span>English (Fluent)</span>
-            <span>Egyptian Arabic (Native)</span>
-        </div>
-    </section>
+    <ul>
+        <li><strong>Visiting Scholar</strong> – Center of Fundamental Physics, ZC, Giza, Egypt (2024–2026). Teaching <em>“Geometry of Physics”</em> sequence of lectures for undergraduates.</li>
+        <li><strong>Undergraduate Grader</strong> – University of Chicago (2023–2024). Grading CMSC 14400 Systems Programming II.</li>
+        <li><strong>Undergraduate Teaching Assistant</strong> – University of Chicago (2022–2023).</li>
+        <li><strong>REU Participant</strong> – University of Chicago REU (Summer 2023). Project: <em>Avatars of the Picard group and group H¹ as a classifying space.</em></li>
+        <li><strong>REU Participant</strong> – University of Chicago REU (Summer 2022). Project: <em>The algorithmic undecidability of manifold homeomorphism.</em></li>
+        <li><strong>Summer School Participant</strong> – British University in Egypt Summer School on Physics (Summer 2021). Project: <em>Chaos in n‑body Trajectories.</em></li>
+    </ul>
+
+    <!-- ─── schools & awards ─── -->
+    <h2>Schools &amp; Awards</h2>
+
+    <ul>
+        <li>5th Summer School on Mathematical Physics, Cairo University (Summer 2025)</li>
+        <li>AUC Winter School on Analysis, American University in Cairo (Winter 2025)</li>
+        <li>University of Washington Provost Fellowship</li>
+        <li>Onsi Sawiris Scholarship</li>
+    </ul>
+
+    <!-- ─── skills & languages ─── -->
+    <h2>Skills &amp; Languages</h2>
+
+    <ul>
+        <li><strong>Programming:</strong> C/C++, Python, Lisp, Haskell</li>
+        <li><strong>Languages:</strong> English (Fluent), Egyptian Arabic (Native)</li>
+    </ul>
 
     <!-- ─── footer ─── -->
-    <footer class="site-footer">
-        <p>© 2026 Ahmed Boarab.</p>
+    <div class="meta">
         <p>
-            Built with HTML &amp; CSS &middot; hosted on
-            <a href="https://pages.github.com/">GitHub Pages</a>.
+            This website is intentionally minimal.
+            <span style="display:inline-block; margin-left:0.5rem;">✎</span>
         </p>
-    </footer>
+    </div>
 
 </div>
+
 </body>
 </html>
