@@ -1,594 +1,322 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Al-Khwārizmī · Rivera</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ahmed Boarab · Mathematics</title>
+  <style>
+    /* Reset & base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <!-- MathJax for LaTeX -->
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-    </script>
+    body {
+      background: #f9f7f4;
+      color: #1e1e1e;
+      font-family: 'Courier New', Courier, 'IBM Plex Mono', 'Source Code Pro', monospace;
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+      display: flex;
+      justify-content: center;
+    }
 
-    <!-- EB Garamond + IM Fell for classical feel -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet" />
+    .page {
+      max-width: 800px;
+      width: 100%;
+      background: white;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      border: 1px solid #e0ddd8;
+    }
 
-    <style>
-        /* ---------- Reset & Base ---------- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    /* typewriter feel */
+    h1, h2, h3, .meta, .section-title {
+      font-weight: normal;
+      letter-spacing: 0.02em;
+    }
 
-        :root {
-            --parchment: #f3ede4;
-            --parchment-dark: #e6dccf;
-            --ink: #2c241a;
-            --ink-light: #5a4c38;
-            --rubric: #8b2e2e;
-            --gold: #b8860b;
-            --gold-light: #d4a82a;
-            --border-deco: #b8a68b;
-            --font-serif: 'EB Garamond', 'Georgia', 'Times New Roman', serif;
-            --font-italic: 'IM Fell English', 'EB Garamond', serif;
-            --max-width: 780px;
-            --page-padding: 2.5rem;
-        }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.2rem;
+      font-weight: 600;
+    }
 
-        body {
-            background-color: #d9cebe;
-            background-image:
-                radial-gradient(ellipse at 20% 30%, rgba(235, 220, 200, 0.3) 0%, transparent 70%),
-                linear-gradient(145deg, #cbb9a5 0%, #e0d2be 100%);
-            display: flex;
-            justify-content: center;
-            padding: 2rem 1.2rem;
-            font-family: var(--font-serif);
-            color: var(--ink);
-            line-height: 1.75;
-            font-size: 1.1rem;
-            min-height: 100vh;
-        }
+    .subhead {
+      font-size: 1rem;
+      margin-bottom: 1.2rem;
+      color: #3b3b3b;
+      border-bottom: 1px dashed #ccc;
+      padding-bottom: 0.8rem;
+    }
 
-        .manuscript {
-            max-width: var(--max-width);
-            width: 100%;
-            background: var(--parchment);
-            background-image:
-                radial-gradient(circle at 30% 40%, rgba(255, 245, 230, 0.4) 0%, transparent 60%),
-                repeating-linear-gradient(45deg, rgba(200, 180, 160, 0.03) 0px, rgba(200, 180, 160, 0.03) 2px, transparent 2px, transparent 6px);
-            box-shadow:
-                0 1.5rem 3rem rgba(20, 15, 10, 0.35),
-                inset 0 0 0 1px #d6c8b6,
-                0 0 0 1px #a18d78;
-            padding: var(--page-padding);
-            border-radius: 4px 4px 8px 8px;
-            position: relative;
-        }
+    .section {
+      margin-top: 1.8rem;
+    }
 
-        /* decorative edge */
-        .manuscript::before {
-            content: "";
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            right: 12px;
-            bottom: 12px;
-            border: 1px solid rgba(180, 160, 140, 0.25);
-            pointer-events: none;
-            border-radius: 2px;
-        }
+    .section-title {
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 0.2rem;
+      margin-bottom: 1rem;
+    }
 
-        /* ---------- Typography ---------- */
-        h1,
-        h2,
-        h3 {
-            font-family: var(--font-serif);
-            font-weight: 700;
-            color: var(--ink);
-            margin-top: 1.8rem;
-            margin-bottom: 0.4rem;
-            letter-spacing: 0.02em;
-        }
+    .entry {
+      margin-bottom: 1.2rem;
+    }
 
-        h1 {
-            font-size: 2.8rem;
-            text-align: center;
-            font-weight: 700;
-            letter-spacing: 0.04em;
-            margin-top: 0.5rem;
-            margin-bottom: 0.2rem;
-            color: var(--rubric);
-        }
+    .entry-head {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+    }
 
-        h2 {
-            font-size: 1.6rem;
-            font-weight: 600;
-            text-align: center;
-            margin-top: 2.2rem;
-            margin-bottom: 0.6rem;
-            padding-bottom: 0.2rem;
-            border-bottom: 2px double var(--border-deco);
-            letter-spacing: 0.08em;
-            color: var(--rubric);
-        }
+    .entry-title {
+      font-weight: 600;
+    }
 
-        h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-top: 1rem;
-            margin-bottom: 0.2rem;
-            font-style: italic;
-            color: var(--ink-light);
-        }
+    .entry-institution {
+      font-style: italic;
+    }
 
-        a {
-            color: var(--rubric);
-            text-decoration: none;
-            border-bottom: 1px dotted var(--gold);
-            transition: color 0.2s, border-color 0.2s;
-        }
-        a:hover {
-            color: var(--gold);
-            border-bottom-color: var(--gold);
-        }
+    .entry-date {
+      color: #555;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
 
-        p {
-            margin-bottom: 0.6rem;
-            text-align: justify;
-            hyphens: auto;
-        }
+    .entry-desc {
+      margin-top: 0.1rem;
+      padding-left: 0.2rem;
+    }
 
-        .small-caps {
-            font-variant: small-caps;
-            letter-spacing: 0.04em;
-        }
+    .entry-desc ul {
+      list-style: none;
+      padding-left: 0.8rem;
+    }
 
-        /* ---------- Ornaments ---------- */
-        .ornament {
-            text-align: center;
-            font-size: 1.6rem;
-            color: var(--gold);
-            letter-spacing: 0.6rem;
-            margin: 0.8rem 0 0.4rem 0;
-            opacity: 0.7;
-        }
+    .entry-desc li {
+      position: relative;
+      padding-left: 1.2rem;
+      margin-bottom: 0.1rem;
+    }
 
-        .ornament-line {
-            border: none;
-            border-top: 2px double var(--border-deco);
-            margin: 1.5rem 0;
-            width: 50%;
-            margin-left: auto;
-            margin-right: auto;
-        }
+    .entry-desc li::before {
+      content: "–";
+      position: absolute;
+      left: 0;
+      color: #666;
+    }
 
-        /* ---------- Title page ---------- */
-        .title-page {
-            text-align: center;
-            margin: 0.5rem 0 1.5rem 0;
-            padding: 1rem 0 1.2rem 0;
-            border-bottom: 1px solid var(--border-deco);
-        }
+    .talk-item {
+      margin-bottom: 0.3rem;
+    }
 
-        .title-page .main-title {
-            font-size: 3.2rem;
-            font-weight: 700;
-            letter-spacing: 0.06em;
-            color: var(--rubric);
-            line-height: 1.2;
-            font-family: var(--font-italic);
-        }
+    .talk-title {
+      font-style: italic;
+    }
 
-        .title-page .sub-title {
-            font-size: 1.4rem;
-            font-style: italic;
-            color: var(--ink-light);
-            margin-top: -0.2rem;
-            letter-spacing: 0.04em;
-        }
+    .talk-venue {
+      font-size: 0.95rem;
+    }
 
-        .title-page .author {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-top: 0.6rem;
-            font-variant: small-caps;
-        }
+    .meta-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.5rem;
+      margin-top: 0.3rem;
+    }
 
-        .title-page .affiliation {
-            font-size: 1rem;
-            color: var(--ink-light);
-            font-style: italic;
-        }
+    .meta-list span {
+      background: #f0ede8;
+      padding: 0.1rem 0.6rem;
+      font-size: 0.9rem;
+    }
 
-        /* ---------- Navigation (simple) ---------- */
-        .nav-links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 0.4rem 2rem;
-            margin: 1.2rem 0 1.5rem 0;
-            padding: 0.6rem 0;
-            border-top: 1px solid var(--border-deco);
-            border-bottom: 1px solid var(--border-deco);
-            font-size: 0.95rem;
-            font-variant: small-caps;
-            letter-spacing: 0.04em;
-        }
+    hr {
+      border: none;
+      border-top: 1px solid #ddd;
+      margin: 1.8rem 0 0.5rem 0;
+    }
 
-        .nav-links a {
-            color: var(--ink);
-            border-bottom: none;
-            padding: 0.1rem 0.2rem;
-        }
+    a {
+      color: #1e1e1e;
+      text-decoration: none;
+      border-bottom: 1px dotted #aaa;
+    }
 
-        .nav-links a:hover {
-            color: var(--rubric);
-            background: rgba(180, 130, 70, 0.08);
-        }
+    a:hover {
+      border-bottom: 1px solid #1e1e1e;
+    }
 
-        /* ---------- Sections ---------- */
-        .section {
-            margin-top: 1.8rem;
-        }
+    .address {
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+      color: #2e2e2e;
+    }
 
-        .section-intro {
-            margin: 0.2rem 0 0.8rem 0;
-            font-style: italic;
-            color: var(--ink-light);
-            padding-left: 0.5rem;
-            border-left: 3px solid var(--gold-light);
-            padding-left: 1rem;
-        }
+    .small-note {
+      font-size: 0.85rem;
+      color: #555;
+      margin-top: 0.2rem;
+    }
 
-        /* ---------- Math block ---------- */
-        .math-block {
-            background: rgba(235, 225, 210, 0.4);
-            border: 1px solid var(--border-deco);
-            padding: 0.8rem 1.4rem;
-            margin: 1.2rem 0;
-            font-family: var(--font-serif);
-            font-size: 1.1rem;
-            text-align: center;
-            box-shadow: inset 0 0 8px rgba(150, 120, 90, 0.06);
-        }
-
-        .math-block .math-label {
-            font-style: italic;
-            font-size: 0.85rem;
-            color: var(--ink-light);
-            display: block;
-            margin-top: 0.2rem;
-        }
-
-        /* ---------- Lists ---------- */
-        .pub-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
-            margin: 0.4rem 0;
-        }
-
-        .pub-item {
-            background: rgba(245, 235, 220, 0.4);
-            border: 1px solid #d6c8b6;
-            padding: 0.6rem 1.2rem;
-            border-radius: 2px;
-            border-left: 4px solid var(--gold-light);
-        }
-
-        .pub-item .pub-title {
-            font-weight: 600;
-            font-size: 1.05rem;
-        }
-
-        .pub-item .pub-authors {
-            font-style: italic;
-            color: var(--ink-light);
-            font-size: 0.9rem;
-        }
-
-        .pub-item .pub-journal {
-            font-size: 0.85rem;
-            color: var(--rubric);
-        }
-
-        .pub-item .pub-links {
-            margin-top: 0.2rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem 1.2rem;
-        }
-
-        .pub-item .pub-links a {
-            font-size: 0.8rem;
-            border-bottom: 1px dotted var(--gold);
-        }
-
-        /* ---------- Contact ---------- */
-        .contact-block {
-            background: rgba(245, 235, 220, 0.5);
-            border: 1px solid var(--border-deco);
-            padding: 1rem 1.6rem;
-            margin: 0.6rem 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.2rem 2rem;
-            justify-content: center;
-        }
-
-        .contact-block span {
-            font-size: 0.95rem;
-        }
-
-        .contact-block .label {
-            font-weight: 600;
-            font-variant: small-caps;
-            color: var(--rubric);
-            margin-right: 0.2rem;
-        }
-
-        /* ---------- Footer ---------- */
-        .colophon {
-            margin-top: 2rem;
-            padding-top: 0.8rem;
-            border-top: 1px solid var(--border-deco);
-            text-align: center;
-            font-size: 0.8rem;
-            color: var(--ink-light);
-            letter-spacing: 0.04em;
-        }
-
-        .colophon a {
-            color: var(--ink-light);
-            border-bottom: none;
-        }
-
-        .colophon a:hover {
-            color: var(--rubric);
-        }
-
-        /* ---------- Responsive ---------- */
-        @media (max-width: 640px) {
-            :root {
-                --page-padding: 1.2rem;
-            }
-
-            body {
-                padding: 0.6rem;
-                font-size: 0.95rem;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-
-            h2 {
-                font-size: 1.3rem;
-            }
-
-            .title-page .main-title {
-                font-size: 2.4rem;
-            }
-
-            .nav-links {
-                gap: 0.2rem 0.8rem;
-                font-size: 0.8rem;
-            }
-
-            .contact-block {
-                flex-direction: column;
-                align-items: center;
-                gap: 0.1rem;
-            }
-        }
-
-        /* ---------- MathJax tweaks ---------- */
-        .math-block mjx-container {
-            font-size: 1.1rem !important;
-        }
-
-        mjx-container {
-            color: var(--ink) !important;
-        }
-    </style>
+    @media (max-width: 600px) {
+      .page { padding: 1.5rem 1rem; }
+      h1 { font-size: 1.8rem; }
+      .entry-head { flex-direction: column; align-items: flex-start; }
+      .entry-date { margin-top: 0.1rem; }
+    }
+  </style>
 </head>
-
 <body>
+<div class="page">
 
-    <div class="manuscript">
+  <!-- Header -->
+  <h1>Ahmed Boarab</h1>
+  <div class="subhead">
+    <div class="address">4110 E Stevens Way NE, Seattle, WA, USA · <a href="mailto:aboarab@uw.edu">aboarab@uw.edu</a></div>
+  </div>
 
-        <!-- ====== TITLE PAGE ====== -->
-        <div class="title-page">
-            <div class="main-title">كتاب الجبر والمقابلة</div>
-            <div class="sub-title">Al-Kitāb al-Mukhtaṣar fī Ḥisāb al-Jabr wa'l-Muqābala</div>
-            <div class="ornament" style="font-size:1.8rem; letter-spacing:0.6rem;">✦ ✧ ✦</div>
-            <div class="author">Alex Rivera</div>
-            <div class="affiliation">University of Chicago · Department of Mathematics</div>
-            <div style="margin-top:0.8rem; font-style:italic; color:var(--ink-light); font-size:0.95rem;">
-                “The Compendious Book on Calculation by Completion and Balancing”
-            </div>
-        </div>
+  <!-- Research Interest -->
+  <div class="section">
+    <div class="section-title">Research Interest</div>
+    <p style="font-size:1.05rem;">Differential Geometry, Geometric Analysis.</p>
+  </div>
 
-        <!-- ====== NAVIGATION ====== -->
-        <nav class="nav-links" aria-label="Navigation">
-            <a href="#about">About</a>
-            <a href="#research">Research</a>
-            <a href="#publications">Publications</a>
-            <a href="#teaching">Teaching</a>
-            <a href="#contact">Contact</a>
-        </nav>
+  <!-- Education -->
+  <div class="section">
+    <div class="section-title">Education</div>
 
-        <!-- ====== ABOUT ====== -->
-        <section id="about" class="section">
-            <h2>I. About</h2>
-            <div class="ornament">❧</div>
-
-            <p>
-                I am a second-year mathematics PhD student at the
-                <strong>University of Chicago</strong>. I am interested in
-                <strong>algebraic geometry</strong> and its interactions with
-                <strong>matroid theory</strong> and
-                <strong>non-archimedean geometry</strong>.
-                I am currently working on the computations of some
-                KSBA moduli spaces.
-            </p>
-            <p>
-                Previously, I obtained my BA in Mathematics from
-                <strong>Oxford</strong> in 2023 and completed
-                <strong>Part III of the Mathematical Tripos</strong>
-                at Cambridge in 2024.
-            </p>
-
-            <div class="math-block">
-                \[
-                \mathcal{M}_{d} = \left\{ f : \mathbb{P}^1 \to \mathbb{P}^1 \;\middle|\; \deg f = d \right\} \big/ \operatorname{PGL}_2
-                \]
-                <span class="math-label">— Moduli space of degree-\(d\) rational maps</span>
-            </div>
-        </section>
-
-        <hr class="ornament-line" />
-
-        <!-- ====== RESEARCH ====== -->
-        <section id="research" class="section">
-            <h2>II. Research</h2>
-            <div class="ornament">❧</div>
-            <div class="section-intro">
-                My work is guided by questions at the boundary of algebraic
-                geometry, combinatorics, and non-archimedean geometry.
-            </div>
-
-            <h3>Moduli spaces &amp; matroid theory</h3>
-            <p>
-                I study the geometry of moduli spaces of curves and their
-                connections to matroid theory. In particular, I am interested
-                in the <strong>KSBA compactification</strong> of moduli spaces
-                and the role of <strong>tropical geometry</strong> in
-                understanding their boundary strata.
-            </p>
-
-            <h3>Non-archimedean geometry</h3>
-            <p>
-                I explore the interplay between <strong>Berkovich spaces</strong>
-                and <strong>tropicalization</strong>, with applications to
-                the study of <strong>degenerations</strong> of algebraic
-                varieties and the <strong>skeleton</strong> of moduli spaces.
-            </p>
-        </section>
-
-        <hr class="ornament-line" />
-
-        <!-- ====== PUBLICATIONS ====== -->
-        <section id="publications" class="section">
-            <h2>III. Publications</h2>
-            <div class="ornament">❧</div>
-            <div class="section-intro">
-                * indicates equal contribution &middot; preprints on arXiv.
-            </div>
-
-            <div class="pub-list">
-                <div class="pub-item">
-                    <div class="pub-title">The geometry of the moduli space of cubic rational maps</div>
-                    <div class="pub-authors">A. Rivera, M. Harris</div>
-                    <div class="pub-journal">To appear in <em>Journal of Algebraic Geometry</em>, 2026</div>
-                    <div class="pub-links">
-                        <a href="#">arXiv:2506.01234</a>
-                        <a href="#">DOI</a>
-                    </div>
-                </div>
-
-                <div class="pub-item">
-                    <div class="pub-title">Arithmetic dynamics and the distribution of preperiodic points</div>
-                    <div class="pub-authors">A. Rivera</div>
-                    <div class="pub-journal"><em>International Mathematics Research Notices</em>, 2025, 3: 112–145</div>
-                    <div class="pub-links">
-                        <a href="#">arXiv:2409.08765</a>
-                        <a href="#">DOI</a>
-                    </div>
-                </div>
-
-                <div class="pub-item">
-                    <div class="pub-title">Tropical Hodge theory and the effective cone of \(\overline{\mathcal{M}}_{0,n}\)</div>
-                    <div class="pub-authors">A. Rivera*, S. Chen*, K. Nakamura</div>
-                    <div class="pub-journal"><em>Algebra &amp; Number Theory</em>, 2024, 18(4): 891–934</div>
-                    <div class="pub-links">
-                        <a href="#">arXiv:2306.04521</a>
-                        <a href="#">DOI</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <hr class="ornament-line" />
-
-        <!-- ====== TEACHING ====== -->
-        <section id="teaching" class="section">
-            <h2>IV. Teaching</h2>
-            <div class="ornament">❧</div>
-            <div class="section-intro">
-                I have served as teaching assistant for the following courses.
-            </div>
-
-            <h3>University of Chicago</h3>
-            <ul style="list-style:none; padding-left:0.5rem;">
-                <li style="margin-bottom:0.3rem;">
-                    <strong>MATH 20300</strong> &mdash; Analysis III (Spring 2026)
-                </li>
-                <li style="margin-bottom:0.3rem;">
-                    <strong>MATH 16100</strong> &mdash; Calculus III (Autumn 2025)
-                </li>
-                <li style="margin-bottom:0.3rem;">
-                    <strong>MATH 28500</strong> &mdash; Introduction to Algebraic Geometry (Winter 2025)
-                </li>
-            </ul>
-
-            <h3>Cambridge</h3>
-            <ul style="list-style:none; padding-left:0.5rem;">
-                <li style="margin-bottom:0.3rem;">
-                    <strong>Part III</strong> &mdash; Algebraic Geometry (2024)
-                </li>
-            </ul>
-
-            <p style="margin-top:0.6rem; font-style:italic; color:var(--ink-light);">
-                Teaching statement available upon request.
-            </p>
-        </section>
-
-        <hr class="ornament-line" />
-
-        <!-- ====== CONTACT ====== -->
-        <section id="contact" class="section">
-            <h2>V. Contact</h2>
-            <div class="ornament">❧</div>
-
-            <div class="contact-block">
-                <span><span class="label">Email</span> <a href="mailto:arivera@math.uchicago.edu">arivera@math.uchicago.edu</a></span>
-                <span><span class="label">Office</span> Eckhart 307, Chicago</span>
-                <span><span class="label">Phone</span> +1 (773) 555-0142</span>
-                <span><span class="label">GitHub</span> <a href="#">github.com/alex-rivera</a></span>
-            </div>
-
-            <p style="text-align:center; margin-top:0.6rem; font-style:italic; color:var(--ink-light);">
-                Office hours: Tuesday &amp; Thursday, 14:00–16:00
-            </p>
-        </section>
-
-        <!-- ====== COLOPHON ====== -->
-        <div class="colophon">
-            <span class="ornament" style="font-size:1.2rem; letter-spacing:0.4rem;">❧ ✦ ❧</span><br />
-            <span style="display:inline-block; margin-top:0.2rem;">
-                © MMXXVI Alex Rivera &middot; <span style="font-style:italic;">wa billāhi t-tawfīq</span>
-            </span>
-            <span style="display:block; margin-top:0.2rem;">
-                <a href="#top">↑ Return to top</a>
-            </span>
-        </div>
-
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">University of Washington, Seattle, WA</span>
+        <span class="entry-date">2024 – Present</span>
+      </div>
+      <div class="entry-desc">Ph.D. Mathematics · Graduate Advisor: TBD</div>
     </div>
-    <!-- /manuscript -->
 
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">The University of Chicago, Chicago, IL</span>
+        <span class="entry-date">Class of 2024</span>
+      </div>
+      <div class="entry-desc">B.Sc. Mathematics, Computer Science · Graduated with honors in Mathematics</div>
+    </div>
+  </div>
+
+  <!-- Employment & Experience -->
+  <div class="section">
+    <div class="section-title">Employment &amp; Experience</div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Visiting Scholar</span>
+        <span class="entry-date">2024 – 2026</span>
+      </div>
+      <div class="entry-desc">
+        Center of Fundamental Physics, ZC, Giza, Egypt<br>
+        Teaching <em>“Geometry of Physics”</em> sequence of lectures for undergraduates.
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Undergraduate Grader</span>
+        <span class="entry-date">2023 – 2024</span>
+      </div>
+      <div class="entry-desc">University of Chicago · Grading CMSC 14400 Systems Programming II.</div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Undergraduate Teaching Assistant</span>
+        <span class="entry-date">2022 – 2023</span>
+      </div>
+      <div class="entry-desc">University of Chicago</div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">REU Participant</span>
+        <span class="entry-date">Summer 2023</span>
+      </div>
+      <div class="entry-desc">University of Chicago REU · Project: <em>Avatars of the Picard group and group H¹ as a classifying space.</em></div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">REU Participant</span>
+        <span class="entry-date">Summer 2022</span>
+      </div>
+      <div class="entry-desc">University of Chicago REU · Project: <em>The algorithmic undecidability of manifold homeomorphism.</em></div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Summer School Participant</span>
+        <span class="entry-date">Summer 2021</span>
+      </div>
+      <div class="entry-desc">British University in Egypt Summer School on Physics · Project: <em>Chaos in n‑body Trajectories.</em></div>
+    </div>
+  </div>
+
+  <!-- Talks -->
+  <div class="section">
+    <div class="section-title">Talks</div>
+
+    <div class="talk-item">
+      <span class="talk-title">Minimal Surface theory and black holes.</span>
+      <span class="talk-venue">ZC Center of Fundamental Physics Seminar (Winter 2025)</span>
+    </div>
+    <div class="talk-item">
+      <span class="talk-title">Estimates on the Favard length for the four‑corner Cantor set.</span>
+      <span class="talk-venue">University of Chicago Student GMT Seminar (Fall 2023)</span>
+    </div>
+    <div class="talk-item">
+      <span class="talk-title">Favard curve length for the four‑corner Cantor set.</span>
+      <span class="talk-venue">University of Chicago Student GMT Seminar (Fall 2023)</span>
+    </div>
+    <div class="talk-item">
+      <span class="talk-title">An elementary proof of the Abel‑Jacobi theorem.</span>
+      <span class="talk-venue">University of Chicago Mathematics Club (Summer 2023)</span>
+    </div>
+  </div>
+
+  <!-- Schools & Awards -->
+  <div class="section">
+    <div class="section-title">Schools &amp; Awards</div>
+    <ul style="list-style:none; padding-left:0.2rem;">
+      <li>5th Summer School on Mathematical Physics, Cairo University (Summer 2025)</li>
+      <li>AUC Winter School on Analysis, American University in Cairo (Winter 2025)</li>
+      <li>University of Washington Provost Fellowship</li>
+      <li>Onsi Sawiris Scholarship</li>
+    </ul>
+  </div>
+
+  <!-- Skills / Languages -->
+  <div class="section">
+    <div class="section-title">Skills &amp; Languages</div>
+    <div class="meta-list">
+      <span>C/C++</span>
+      <span>Python</span>
+      <span>Lisp</span>
+      <span>Haskell</span>
+      <span>English (Fluent)</span>
+      <span>Egyptian Arabic (Native)</span>
+    </div>
+  </div>
+
+  <hr>
+  <div class="small-note" style="text-align:right; margin-top:0.5rem;">
+    <span style="letter-spacing:0.05em;">~ updated 2026</span>
+  </div>
+
+</div>
 </body>
 </html>
