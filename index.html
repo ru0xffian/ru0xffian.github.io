@@ -3,249 +3,516 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ahmed Boarab</title>
+    <title>darwish@math:~$</title>
+
+    <!-- MathJax for LaTeX rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <!-- JetBrains Mono for a crisp terminal feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+
     <style>
-        /* ── reset & base ── */
-        * {
+        /* ---------- Reset & Base ---------- */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0b0e14;
+            --bg-alt: #11161f;
+            --fg: #c8d0d8;
+            --fg-dim: #7a8a9a;
+            --green: #3fcf8e;
+            --green-dim: #2a8f5e;
+            --cyan: #6bc6e7;
+            --amber: #f5b765;
+            --white: #eef3f8;
+            --border: #26303e;
+            --radius: 0px;
+            --max-width: 880px;
+            --font: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Georgia', 'Times New Roman', Times, serif;
-            background: #fcfcf9;
-            color: #1a1a1a;
+            background-color: var(--bg);
+            color: var(--fg);
+            font-family: var(--font);
+            font-size: 0.95rem;
             line-height: 1.7;
-            padding: 3rem 1.5rem;
+            padding: 2rem 1.2rem;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
         }
 
         .container {
-            max-width: 780px;
+            max-width: var(--max-width);
             width: 100%;
         }
 
-        /* ── headings ── */
+        /* ---------- Typography ---------- */
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--font);
+            font-weight: 600;
+            color: var(--white);
+            letter-spacing: -0.01em;
+        }
+
         h1 {
             font-size: 2.2rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            margin-bottom: 0.15rem;
         }
-
-        .subhead {
-            font-size: 1.1rem;
-            color: #2a2a2a;
-            margin-bottom: 1.8rem;
-            border-bottom: 1px solid #e0ddd8;
-            padding-bottom: 0.6rem;
-        }
-
         h2 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-top: 2rem;
-            margin-bottom: 0.5rem;
-            border-bottom: 1px solid #e0ddd8;
-            padding-bottom: 0.15rem;
+            font-size: 1.6rem;
+            margin: 1.8rem 0 0.6rem 0;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.3rem;
         }
-
-        /* ── paragraphs & links ── */
-        p {
-            margin-bottom: 0.6rem;
+        h3 {
+            font-size: 1.2rem;
+            margin: 0.2rem 0 0.2rem 0;
+            color: var(--cyan);
+        }
+        h4 {
+            font-size: 1rem;
+            color: var(--amber);
         }
 
         a {
-            color: #1a1a1a;
+            color: var(--cyan);
             text-decoration: none;
-            border-bottom: 1px dotted #aaa;
+            border-bottom: 1px dotted var(--border);
+            transition: color 0.15s, border-color 0.15s;
         }
-
         a:hover {
-            border-bottom: 1px solid #1a1a1a;
+            color: var(--green);
+            border-bottom-color: var(--green);
         }
 
-        /* ── lists ── */
-        ul {
+        .prompt {
+            color: var(--green);
+            font-weight: 600;
+            user-select: none;
+        }
+        .prompt-amber {
+            color: var(--amber);
+            font-weight: 600;
+        }
+
+        .cmd-line {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.4rem 0.8rem;
+            padding: 0.2rem 0;
+        }
+
+        .cmd-line .cmd {
+            color: var(--white);
+        }
+
+        /* ---------- Navigation (shell style) ---------- */
+        nav {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.8rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.6rem 1.8rem;
+        }
+
+        nav .nav-prompt {
+            color: var(--green);
+            font-weight: 600;
+        }
+
+        nav .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem 1.2rem;
             list-style: none;
-            padding-left: 0.2rem;
-            margin-bottom: 0.8rem;
-        }
-
-        ul li {
-            position: relative;
-            padding-left: 1.4rem;
-            margin-bottom: 0.1rem;
-        }
-
-        ul li::before {
-            content: "–";
-            position: absolute;
-            left: 0;
-            color: #777;
-        }
-
-        /* ── research / talk items ── */
-        .paper {
-            margin-bottom: 0.6rem;
-        }
-
-        .paper .title {
-            font-weight: 700;
-        }
-
-        .paper .abstract {
-            margin-top: 0.1rem;
-            color: #2a2a2a;
-        }
-
-        .talk-item {
-            margin-bottom: 0.2rem;
-        }
-
-        .talk-item .venue {
-            color: #444;
-        }
-
-        /* ── meta / footer ── */
-        .meta {
-            margin-top: 2.2rem;
-            padding-top: 1rem;
-            border-top: 1px solid #e0ddd8;
             font-size: 0.9rem;
-            color: #555;
         }
 
-        .meta a {
-            color: #1a1a1a;
-            border-bottom: 1px dotted #aaa;
+        nav .nav-links a {
+            color: var(--fg);
+            border-bottom: none;
+            padding: 0.1rem 0.2rem;
+        }
+        nav .nav-links a:hover {
+            color: var(--green);
+            background: var(--bg-alt);
+        }
+        nav .nav-links a.active {
+            color: var(--green);
+            background: var(--bg-alt);
         }
 
-        .meta a:hover {
-            border-bottom: 1px solid #1a1a1a;
+        /* ---------- Sections ---------- */
+        section {
+            margin-bottom: 2.2rem;
+            padding-top: 0.4rem;
         }
 
-        /* ── responsive ── */
-        @media (max-width: 600px) {
+        .section-intro {
+            color: var(--fg-dim);
+            margin: 0.6rem 0 1.2rem 0;
+            padding-left: 0.2rem;
+            border-left: 2px solid var(--border);
+            padding-left: 1rem;
+        }
+
+        /* ---------- Hero ---------- */
+        .hero {
+            margin-bottom: 2rem;
+        }
+        .hero .name {
+            font-size: 2.8rem;
+            font-weight: 600;
+            color: var(--white);
+            letter-spacing: -0.02em;
+        }
+        .hero .title-role {
+            color: var(--amber);
+            font-size: 1.1rem;
+        }
+        .hero .affiliation {
+            color: var(--fg-dim);
+        }
+        .hero .affiliation a {
+            color: var(--cyan);
+            border-bottom: 1px dotted var(--border);
+        }
+
+        .hero-meta {
+            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem 1.8rem;
+            background: var(--bg-alt);
+            padding: 0.8rem 1.2rem;
+            border: 1px solid var(--border);
+        }
+        .hero-meta span {
+            color: var(--fg-dim);
+        }
+        .hero-meta a {
+            color: var(--cyan);
+            border-bottom: 1px dotted var(--border);
+        }
+
+        /* ---------- Math block ---------- */
+        .math-block {
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            padding: 1rem 1.4rem;
+            margin: 1.2rem 0;
+            overflow-x: auto;
+            color: var(--white);
+        }
+
+        /* ---------- Research / Teaching lists ---------- */
+        .research-grid,
+        .teaching-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+            margin-top: 0.6rem;
+        }
+
+        .research-card,
+        .teaching-card {
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            padding: 1.2rem 1.4rem;
+        }
+
+        .research-card .tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--green);
+            border: 1px solid var(--green-dim);
+            padding: 0.1rem 0.7rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .research-card p,
+        .teaching-card p {
+            font-size: 0.9rem;
+            color: var(--fg-dim);
+        }
+
+        .teaching-card .course-code {
+            color: var(--amber);
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+        .teaching-card .term {
+            color: var(--fg-dim);
+            font-size: 0.85rem;
+        }
+
+        /* ---------- Publications ---------- */
+        .pub-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .pub-item {
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            padding: 1rem 1.4rem;
+        }
+        .pub-item .pub-title {
+            color: var(--white);
+            font-weight: 600;
+        }
+        .pub-item .pub-authors {
+            color: var(--fg-dim);
+            font-size: 0.9rem;
+        }
+        .pub-item .pub-journal {
+            color: var(--amber);
+            font-size: 0.85rem;
+        }
+        .pub-item .pub-links {
+            margin-top: 0.3rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem 1.4rem;
+        }
+        .pub-item .pub-links a {
+            font-size: 0.85rem;
+            border-bottom: 1px dotted var(--border);
+        }
+
+        /* ---------- Contact (shell style) ---------- */
+        .contact-block {
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            padding: 1.4rem 1.8rem;
+        }
+        .contact-block .contact-line {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem 1.2rem;
+            padding: 0.15rem 0;
+            align-items: baseline;
+        }
+        .contact-block .contact-line .label {
+            color: var(--fg-dim);
+            min-width: 6rem;
+        }
+        .contact-block .contact-line a {
+            color: var(--cyan);
+            border-bottom: 1px dotted var(--border);
+        }
+
+        /* ---------- Footer ---------- */
+        footer {
+            margin-top: 2.5rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid var(--border);
+            color: var(--fg-dim);
+            font-size: 0.8rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 0.6rem;
+        }
+        footer a {
+            color: var(--fg-dim);
+            border-bottom: none;
+        }
+        footer a:hover {
+            color: var(--green);
+        }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 640px) {
             body {
-                padding: 2rem 1rem;
+                padding: 1rem 0.8rem;
+                font-size: 0.9rem;
+            }
+            .hero .name {
+                font-size: 2rem;
             }
             h1 {
                 font-size: 1.8rem;
             }
-            .subhead {
-                font-size: 1rem;
-            }
             h2 {
-                font-size: 1.1rem;
+                font-size: 1.3rem;
             }
+            .research-grid,
+            .teaching-grid {
+                grid-template-columns: 1fr;
+            }
+            nav {
+                flex-direction: column;
+                gap: 0.2rem;
+            }
+            nav .nav-links {
+                gap: 0.2rem 1rem;
+            }
+            .hero-meta {
+                flex-direction: column;
+                gap: 0.2rem;
+            }
+            .contact-block .contact-line {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.1rem;
+            }
+            .contact-block .contact-line .label {
+                min-width: unset;
+            }
+        }
+
+        /* ---------- MathJax overrides ---------- */
+        .math-block mjx-container {
+            color: var(--white) !important;
+        }
+        mjx-container {
+            color: var(--fg) !important;
         }
     </style>
 </head>
+
 <body>
+    <div class="container">
 
-<div class="container">
+        <!-- ====== NAVIGATION ====== -->
+        <nav aria-label="Shell navigation">
+            <span class="nav-prompt">~$</span>
+            <span class="cmd">ls -la</span>
+            <ul class="nav-links">
+                <li><a href="#about" class="active">about</a></li>
+                <li><a href="#research">research</a></li>
+                <li><a href="#publications">pubs</a></li>
+                <li><a href="#teaching">teaching</a></li>
+                <li><a href="#contact">contact</a></li>
+            </ul>
+        </nav>
 
-    <!-- ─── header ─── -->
-    <h1>Ahmed Boarab</h1>
-    <div class="subhead">
-        <span style="display:inline-block; margin-right:0.8rem;">📧 aboarab at uw.edu</span>
-        <span style="display:inline-block;">📍 Seattle, WA · University of Washington</span>
-    </div>
+        <!-- ====== HERO ====== -->
+        <header class="hero">
+            <div class="cmd-line">
+                <span class="prompt">~$</span>
+                <span class="cmd">whoami</span>
+            </div>
+            <div class="name">Abdalla Darwish</div>
 
-    <!-- ─── about ─── -->
-    <h2>About me</h2>
-    <p>
-        I am a mathematics PhD student at the University of Washington.
-        My research interests are in <strong>differential geometry</strong> and
-        <strong>geometric analysis</strong>.
-    </p>
-    <p>
-        I completed my B.Sc. in Mathematics and Computer Science at the
-        University of Chicago (2024), graduating with honors in Mathematics.
-    </p>
+            <div class="cmd-line">
+                <span class="prompt">~$</span>
+                <span class="cmd">cat .title</span>
+            </div>
+            <div class="title-role">Grad Student in Mathematics</div>
 
-    <!-- ─── research ─── -->
-    <h2>Research</h2>
+            <div class="cmd-line">
+                <span class="prompt">~$</span>
+                <span class="cmd">cat .affiliation</span>
+            </div>
+            <div class="affiliation">
+                <a href="#">Department of Mathematics</a> &middot;
+                <a href="#">University of Washington</a>
+            </div>
 
-    <div class="paper">
-        <div class="title">Minimal Surface theory and black holes.</div>
-        <div class="abstract">
-            Work in progress on the relationship between minimal surface theory
-            and black hole thermodynamics in general relativity.
-        </div>
-    </div>
+            <div class="hero-meta">
+                <span><span class="prompt-amber">✉</span> <a href="mailto:aboarab@uw.edu">aboarab@uw.edu</a></span>
+                <span><span class="prompt-amber">📄</span> <a href="#">cv.pdf</a></span>
+                <span><span class="prompt-amber">🏛</span> PDL C-404</span>
+            </div>
 
-    <div class="paper">
-        <div class="title">Estimates on the Favard length for the four‑corner Cantor set.</div>
-        <div class="abstract">
-            Joint work with [collaborators]. We obtain improved bounds on the
-            Favard length of the four‑corner Cantor set using geometric measure
-            theory techniques.
-        </div>
-    </div>
+            <div style="margin-top:0.6rem; color:var(--fg-dim);">
+                <span class="prompt">~$</span> echo $SPECIALIZATION
+                <span style="display:block; padding-left:0.4rem;">
+                    Differential Geometry & Geometric Analysis
+                </span>
+            </div>
+        </header>
 
-    <!-- ─── talks ─── -->
-    <h2>Talks</h2>
+        <!-- ====== ABOUT ====== -->
+        <section id="about">
+            <div class="cmd-line">
+                <span class="prompt">~$</span>
+                <span class="cmd">cat about.md</span>
+            </div>
 
-    <div class="talk-item">
-        <span class="title">Minimal Surface theory and black holes.</span>
-        <span class="venue">– ZC Center of Fundamental Physics Seminar (Winter 2025)</span>
-    </div>
-    <div class="talk-item">
-        <span class="title">Estimates on the Favard length for the four‑corner Cantor set.</span>
-        <span class="venue">– University of Chicago Student GMT Seminar (Fall 2023)</span>
-    </div>
-    <div class="talk-item">
-        <span class="title">Favard curve length for the four‑corner Cantor set.</span>
-        <span class="venue">– University of Chicago Student GMT Seminar (Fall 2023)</span>
-    </div>
-    <div class="talk-item">
-        <span class="title">An elementary proof of the Abel‑Jacobi theorem.</span>
-        <span class="venue">– University of Chicago Mathematics Club (Summer 2023)</span>
-    </div>
+            <div class="section-intro">
+                <p>
+                    I am a fifth-year PhD student at the University of Chicago,
+                    advised by <strong>Prof. Miriam Harris</strong>.
+                    My research lies at the intersection of algebraic geometry
+                    and arithmetic dynamics. I am particularly interested in
+                    the <em>geometric</em> and <em>arithmetic</em> properties
+                    of moduli spaces of rational maps and their connections to
+                    dynamical systems over finite fields.
+                </p>
+                <p style="margin-top:0.6rem;">
+                    Before Chicago, I completed my B.S. in Mathematics at
+                    <strong>MIT</strong> (2021), where I worked on
+                    tropical geometry and combinatorial Hodge theory.
+                </p>
+            </div>
 
-    <!-- ─── teaching & experience ─── -->
-    <h2>Teaching &amp; Experience</h2>
+            <div class="math-block">
+                \[
+                \mathcal{M}_{d} = \left\{ f : \mathbb{P}^1 \to \mathbb{P}^1 \;\middle|\; \deg f = d \right\} \big/ \operatorname{PGL}_2
+                \]
+                <span style="display:block; margin-top:0.3rem; color:var(--fg-dim); font-size:0.9rem;">
+                    <!-- comment --> The moduli space of degree-\(d\) rational maps
+                </span>
+            </div>
+        </section>
 
-    <ul>
-        <li><strong>Visiting Scholar</strong> – Center of Fundamental Physics, ZC, Giza, Egypt (2024–2026). Teaching <em>“Geometry of Physics”</em> sequence of lectures for undergraduates.</li>
-        <li><strong>Undergraduate Grader</strong> – University of Chicago (2023–2024). Grading CMSC 14400 Systems Programming II.</li>
-        <li><strong>Undergraduate Teaching Assistant</strong> – University of Chicago (2022–2023).</li>
-        <li><strong>REU Participant</strong> – University of Chicago REU (Summer 2023). Project: <em>Avatars of the Picard group and group H¹ as a classifying space.</em></li>
-        <li><strong>REU Participant</strong> – University of Chicago REU (Summer 2022). Project: <em>The algorithmic undecidability of manifold homeomorphism.</em></li>
-        <li><strong>Summer School Participant</strong> – British University in Egypt Summer School on Physics (Summer 2021). Project: <em>Chaos in n‑body Trajectories.</em></li>
-    </ul>
+    <!-- ====== SIMPLE SCROLL SPY FOR NAV ====== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-links a');
 
-    <!-- ─── schools & awards ─── -->
-    <h2>Schools &amp; Awards</h2>
+            function updateActive() {
+                let currentId = '';
+                const scrollPos = window.scrollY + 140;
 
-    <ul>
-        <li>5th Summer School on Mathematical Physics, Cairo University (Summer 2025)</li>
-        <li>AUC Winter School on Analysis, American University in Cairo (Winter 2025)</li>
-        <li>University of Washington Provost Fellowship</li>
-        <li>Onsi Sawiris Scholarship</li>
-    </ul>
+                sections.forEach(section => {
+                    const top = section.offsetTop;
+                    const height = section.offsetHeight;
+                    if (scrollPos >= top && scrollPos < top + height) {
+                        currentId = section.getAttribute('id');
+                    }
+                });
 
-    <!-- ─── skills & languages ─── -->
-    <h2>Skills &amp; Languages</h2>
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + currentId) {
+                        link.classList.add('active');
+                    }
+                });
+            }
 
-    <ul>
-        <li><strong>Programming:</strong> C/C++, Python, Lisp, Haskell</li>
-        <li><strong>Languages:</strong> English (Fluent), Egyptian Arabic (Native)</li>
-    </ul>
-
-    <!-- ─── footer ─── -->
-    <div class="meta">
-        <p>
-            This website is intentionally minimal.
-            <span style="display:inline-block; margin-left:0.5rem;">✎</span>
-        </p>
-    </div>
-
-</div>
+            window.addEventListener('scroll', updateActive);
+            updateActive();
+        });
+    </script>
 
 </body>
 </html>
