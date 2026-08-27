@@ -19,61 +19,176 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            font-family: 'Scheherazade New', serif;
         }
 
+        /* ============ HEADER (right-aligned) ============ */
         header {
             width: 100%;
-            padding: 2.5rem 1.5rem;
-            text-align: center;
-            border-bottom: 1px solid #f0f0f0;
+            padding: 2rem 2.5rem 1.5rem;
+            text-align: right;
+            border-bottom: 2px solid #eaeaea;
+            background-color: #ffffff;
         }
 
         h1 {
             font-family: 'Scheherazade New', serif;
             font-weight: 700;
-            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-size: clamp(1.8rem, 4vw, 3rem);
             color: #000000;
+            line-height: 1.4;
             letter-spacing: 0.01em;
-            line-height: 1.6;
+            display: inline-block;
+            border-bottom: 3px solid #000;
+            padding-bottom: 0.4rem;
         }
 
-        h1::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 2px;
-            background-color: #000000;
-            margin: 1.2rem auto 0;
-            border-radius: 1px;
-        }
-
+        /* ============ MAIN CONTENT (blog posts) ============ */
         main {
             flex: 1;
             width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 2.5rem;
         }
 
-        @media (max-width: 480px) {
+        .post-card {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.8rem 2rem;
+            margin-bottom: 2rem;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .post-card:hover {
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .post-card h2 {
+            font-family: 'Scheherazade New', serif;
+            font-weight: 700;
+            font-size: 1.6rem;
+            color: #000;
+            margin-bottom: 0.5rem;
+        }
+
+        .post-date {
+            font-family: 'Scheherazade New', serif;
+            font-weight: 400;
+            font-size: 0.95rem;
+            color: #888;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .post-excerpt {
+            font-family: 'Scheherazade New', serif;
+            font-weight: 400;
+            font-size: 1.2rem;
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            font-family: 'Scheherazade New', serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: #000;
+            text-decoration: none;
+            border-bottom: 1px solid #000;
+            padding-bottom: 0.2rem;
+            transition: opacity 0.2s;
+        }
+
+        .read-more:hover {
+            opacity: 0.6;
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 600px) {
             header {
-                padding: 1.8rem 1rem;
+                padding: 1.5rem 1.2rem 1rem;
             }
 
             h1 {
                 font-size: 1.8rem;
             }
 
-            h1::after {
-                width: 60px;
-                margin-top: 0.8rem;
+            main {
+                padding: 1.5rem 1.2rem;
+            }
+
+            .post-card {
+                padding: 1.2rem 1.4rem;
+            }
+
+            .post-card h2 {
+                font-size: 1.3rem;
+            }
+
+            .post-excerpt {
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
+    <!-- ===== HEADER (right-aligned) ===== -->
     <header>
         <h1>مشروع مشرفة</h1>
     </header>
+
+    <!-- ===== BLOG POSTS (filler content) ===== -->
     <main>
-        <!-- Blank white content area -->
+        <!-- Post 1 -->
+        <article class="post-card">
+            <h2>عنوان المقال الأول</h2>
+            <span class="post-date">١٢ يناير ٢٠٢٥</span>
+            <p class="post-excerpt">
+                هذا نص تجريبي لمقال يمكنك استبداله لاحقًا بالمحتوى الحقيقي. 
+                اكتب هنا ملخصًا أو مقدمة قصيرة عن الموضوع الذي تريد تناوله. 
+                يمكنك التوسع في الكتابة وإضافة التفاصيل والصور والروابط.
+            </p>
+            <a href="#" class="read-more">اقرأ المزيد ←</a>
+        </article>
+
+        <!-- Post 2 -->
+        <article class="post-card">
+            <h2>عنوان المقال الثاني</h2>
+            <span class="post-date">٥ فبراير ٢٠٢٥</span>
+            <p class="post-excerpt">
+                هذا نص تجريبي آخر لمقال فارغ جاهز للتعبئة. 
+                استبدل هذا الكلام بمحتوى حقيقي يتعلق بمشروعك أو أفكارك. 
+                يمكنك إضافة فقرات متعددة وعناوين فرعية وصور توضيحية.
+            </p>
+            <a href="#" class="read-more">اقرأ المزيد ←</a>
+        </article>
+
+        <!-- Post 3 -->
+        <article class="post-card">
+            <h2>عنوان المقال الثالث</h2>
+            <span class="post-date">١٨ مارس ٢٠٢٥</span>
+            <p class="post-excerpt">
+                مساحة إضافية لمقال ثالث جاهز للتحرير. 
+                املأ هذا المكان بأي محتوى ترغب في مشاركته مع زوار موقعك. 
+                النص الحالي مجرد عنصر نائب قابل للتعديل بالكامل.
+            </p>
+            <a href="#" class="read-more">اقرأ المزيد ←</a>
+        </article>
+
+        <!-- Post 4 -->
+        <article class="post-card">
+            <h2>عنوان المقال الرابع</h2>
+            <span class="post-date">٢ أبريل ٢٠٢٥</span>
+            <p class="post-excerpt">
+                بطاقة مقال إضافية يمكنك استخدامها أو حذفها حسب الحاجة. 
+                كل بطاقة منفصلة تمامًا ويمكن ملؤها بمحتوى مستقل. 
+                أضف المزيد من البطاقات بنفس النمط إذا احتجت مساحة أكبر.
+            </p>
+            <a href="#" class="read-more">اقرأ المزيد ←</a>
+        </article>
     </main>
 </body>
 </html>
